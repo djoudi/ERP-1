@@ -11,13 +11,13 @@ The system must be healthy, scalable and will be developed to be prepared to gro
 
 To achieve that goal, the set of technologies will be employed:
 
-## Client-side
+### Client-side
 - jQuery <http://www.jquery.com>
 - Underscore <http://underscorejs.org/>
 - Backbone <http://backbonejs.org/>
 - Twitter Bootstrap <http://twitter.github.com/bootstrap/>
 
-## Server-side
+### Server-side
 - PHP Slim Framework <http://www.slimframework.com/>
 - Possibly, MongoDB due its  "REST" prepared architecture.
 
