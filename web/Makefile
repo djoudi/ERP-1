@@ -5,7 +5,6 @@ CHECK=\033[32m✔\033[39m
 # 
 #
 bootstrap:
-	cd ~/Dropbox/Desenvolvimento/Web/contatos-2.0/web/
 	coffee -co src/js src/coffee/
 	@echo "Compiling CoffeeScript...                  ${CHECK} Done"
 	@mkdir -p src/css/

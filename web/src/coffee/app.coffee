@@ -25,7 +25,6 @@ define [
 	    app.navigate "login",
 	    	trigger: true
 
-
 	  403: ->
 	    # 403 -- Access denied
 	    app.navigate "denied",

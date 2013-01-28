@@ -19,7 +19,6 @@
   define(['jquery', 'underscore', 'backbone', ''], function($, _, Backbone) {
     var app;
     app = new Backbone.Router();
-    alert("Oi, meu amor, te amo muito");
     return $.ajaxSetup({
       statusCode: {
         401: function() {
