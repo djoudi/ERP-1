@@ -6,7 +6,7 @@
  * @copyright   2011 Josh Lockhart
  * @link        http://www.slimframework.com
  * @license     http://www.slimframework.com/license
- * @version     2.2.0
+ * @version     1.6.0
  * @package     Slim
  *
  * MIT LICENSE
@@ -30,7 +30,6 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace Slim\Middleware;
 
 /**
  * Session Cookie
@@ -56,10 +55,9 @@ namespace Slim\Middleware;
  *
  * @package     Slim
  * @author     Josh Lockhart
- * @since      1.6.0
+ * @since      1.5.2
  */
-class SessionCookie extends \Slim\Middleware
-{
+class Slim_Middleware_SessionCookie extends Slim_Middleware {
     /**
      * @var array
      */
@@ -68,10 +66,10 @@ class SessionCookie extends \Slim\Middleware
     /**
      * Constructor
      *
-     * @param  array $settings
+     * @param   array $settings
+     * @return  void
      */
-    public function __construct($settings = array())
-    {
+    public function __construct( $settings = array() ) {
         $this->settings = array_merge(array(
             'expires' => '20 minutes',
             'path' => '/',
@@ -83,35 +81,16 @@ class SessionCookie extends \Slim\Middleware
             'cipher' => MCRYPT_RIJNDAEL_256,
             'cipher_mode' => MCRYPT_MODE_CBC
         ), $settings);
-        if (is_string($this->settings['expires'])) {
+        if ( is_string($this->settings['expires']) ) {
             $this->settings['expires'] = strtotime($this->settings['expires']);
         }
-
-        /**
-         * Session
-         *
-         * We must start a native PHP session to initialize the $_SESSION superglobal.
-         * However, we won't be using the native session store for persistence, so we
-         * disable the session cookie and cache limiter. We also set the session
-         * handler to this class instance to avoid PHP's native session file locking.
-         */
-        ini_set('session.use_cookies', 0);
-        session_cache_limiter(false);
-        session_set_save_handler(
-            array($this, 'open'),
-            array($this, 'close'),
-            array($this, 'read'),
-            array($this, 'write'),
-            array($this, 'destroy'),
-            array($this, 'gc')
-        );
     }
 
     /**
      * Call
+     * @return void
      */
-    public function call()
-    {
+    public function call() {
         $this->loadSession();
         $this->next->call();
         $this->saveSession();
@@ -119,21 +98,18 @@ class SessionCookie extends \Slim\Middleware
 
     /**
      * Load session
-     * @param  array $env
+     * @param   array $env
+     * @return  void
      */
-    protected function loadSession()
-    {
-        if (session_id() === '') {
-            session_start();
-        }
-
-        $value = \Slim\Http\Util::decodeSecureCookie(
+    protected function loadSession() {
+        session_start();
+        $value = Slim_Http_Util::decodeSecureCookie(
             $this->app->request()->cookies($this->settings['name']),
             $this->settings['secret'],
             $this->settings['cipher'],
             $this->settings['cipher_mode']
         );
-        if ($value) {
+        if ( $value ) {
             $_SESSION = unserialize($value);
         } else {
             $_SESSION = array();
@@ -142,18 +118,18 @@ class SessionCookie extends \Slim\Middleware
 
     /**
      * Save session
+     * @return  void
      */
-    protected function saveSession()
-    {
-        $value = \Slim\Http\Util::encodeSecureCookie(
+    protected function saveSession() {
+        $value = Slim_Http_Util::encodeSecureCookie(
             serialize($_SESSION),
             $this->settings['expires'],
             $this->settings['secret'],
             $this->settings['cipher'],
             $this->settings['cipher_mode']
         );
-        if (strlen($value) > 4096) {
-            $this->app->getLog()->error('WARNING! Slim\Middleware\SessionCookie data size is larger than 4KB. Content save failed.');
+        if ( strlen($value) > 4096 ) {
+            $this->app->getLog()->error('WARNING! Slim_Middleware_SessionCookie data size is larger than 4KB. Content save failed.');
         } else {
             $this->app->response()->setCookie($this->settings['name'], array(
                 'value' => $value,
@@ -165,39 +141,5 @@ class SessionCookie extends \Slim\Middleware
             ));
         }
         session_destroy();
-    }
-
-    /********************************************************************************
-    * Session Handler
-    *******************************************************************************/
-
-    public function open($savePath, $sessionName)
-    {
-        return true;
-    }
-
-    public function close()
-    {
-        return true;
-    }
-
-    public function read($id)
-    {
-        return '';
-    }
-
-    public function write($id, $data)
-    {
-        return true;
-    }
-
-    public function destroy($id)
-    {
-        return true;
-    }
-
-    public function gc($maxlifetime)
-    {
-        return true;
     }
 }

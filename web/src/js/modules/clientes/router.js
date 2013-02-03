@@ -14,11 +14,11 @@
       }
 
       ClientesRouter.prototype.routes = {
-        '': "theAlert",
-        'list': "theAlert"
+        '': "listar",
+        '/listar': "listar"
       };
 
-      ClientesRouter.prototype.list = function() {
+      ClientesRouter.prototype.listar = function() {
         return console.log("abrir listagem");
       };
 

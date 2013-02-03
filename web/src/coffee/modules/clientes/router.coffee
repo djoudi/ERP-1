@@ -5,8 +5,8 @@ define [
 ], ($,_,Backbone)->
 	class ClientesRouter extends Backbone.SubRoute
 		routes:
-			''     : "theAlert"
-			'list' : "theAlert"
+			''       : "listar"
+			'/listar' : "listar"
 
-		list: ->
+		listar: ->
 			console.log	 "abrir listagem"
