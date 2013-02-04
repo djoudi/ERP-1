@@ -1,9 +1,9 @@
-CRM
+ERP
 ===
 
 ## Goal
 
-The goal of this project is to create a system capable of meeting the needs of small businesses that need to manage your projects and teams, promote campaigns and provide performance reports for your costumers.
+The goal of this project is to create a system capable of meeting the needs of small businesses that needs to manage your costumers and its interations, promote campaigns and provide reports of all  sorts.
 
 The system must be healthy, scalable and will be developed to be prepared to grow up in modules and enhancements cycles.
 
@@ -15,11 +15,12 @@ To achieve that goal, the set of technologies will be employed:
 - jQuery (<http://www.jquery.com>)
 - Underscore (<http://underscorejs.org/>)
 - Backbone (<http://backbonejs.org/>)
+- RequireJS (<http://requirejs.org/>)
 - Twitter Bootstrap (<http://twitter.github.com/bootstrap/>)
 
 ### Server-side
 - PHP Slim Framework (<http://www.slimframework.com/>)
-- Possibly, MongoDB (<http://www.mongodb.org/>) due its  "REST" prepared architecture.
+- MySQL
 
 ## Architecture 
 
