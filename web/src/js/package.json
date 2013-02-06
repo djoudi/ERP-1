@@ -1,7 +1,0 @@
-{
-  "volo": {
-    "dependencies": {
-      "text": "github:requirejs/text/2.0.4"
-    }
-  }
-}
