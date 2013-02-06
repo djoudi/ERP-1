@@ -3,19 +3,19 @@ define [
 	'underscore'		
 	'backbone'
 	'sprintf'
-	'subroute'
-], ($, _, Backbone)->
+	'views/appview'
+], ($, _, Backbone, sprintf, AppView)->
 
-	
-
-	class Core extends Backbone.SubRouter
-		routes:
-			":controller(/*path)": 'loadModuleRouter'
-		subRouters: {}
-		initialize: ()->
+	class CoreController extends Backbone.Router
+		routes:		{":controller(/*path)": 'loadModuleRouter'}
+		subRouters: { }
+		initialize: () ->
 			super()
 			@setResponseCachers()
 			Backbone.history.start()
+
+			@view = new AppView()
+			@view.render().$el.appendTo("body")
 
 		loadModuleRouter: (controller) ->
 
@@ -26,26 +26,19 @@ define [
 			# if it have been already added to Core, requires it
 			if !@subRouters[controller]? && controller != "core"
 
-				require ["controllers/#{controller}/router"], (Controller) =>
+				require ["controllers/#{controller}"], (Controller) =>
 					# prints log 
-					console.log sprintf  "Starting controller %$1s ...", controllerName
+					console.log sprintf  "Starting controller %1$s ...", controllerName
 
-					# Instances the required Controller
-					@subRouters[controller] = new Controller(controller)
+					if !@subRouters[controller]? && controller != "core"
+						# Instances the required Controller
+						@subRouters[controller] = new Controller(controller)
 
-				,(error)=>
-					# prints log 
-					console.error sprintf "%$1s controller required but not found", controllerName
-					@handleError error
-
-			else
-				subRouters[controller]
 
 		handleError: (error)=>
-		
 		setResponseCachers: ->
 			$.ajaxSetup
 				statusCode:
 					401: =>    
 						@navigate "login",
-							trigger: true		
+							trigger: true

@@ -27,12 +27,13 @@
       bootstrap: '../assets/js/libs/bootstrap',
       underscore: '../assets/js/libs/underscore',
       subroute: '../assets/js/libs/backbone.subroute',
-      subroute: '../assets/js/libs/sprintf'
+      sprintf: '../assets/js/libs/sprintf',
+      text: '../assets/js/libs/text'
     }
   });
 
-  require(['controllers/core'], function(Core) {
-    return new Core();
+  require(['controllers/core', 'subroute', 'text'], function(CoreController) {
+    return new CoreController();
   });
 
 }).call(this);

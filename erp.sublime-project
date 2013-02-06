@@ -1,0 +1,13 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/edygar/Dropbox/Desenvolvimento/Web/ERP",
+			"folder_exclude_patterns": ["dist"]
+		}
+	],
+    "settings":
+    {
+        "tab_size": 4
+    }
+}

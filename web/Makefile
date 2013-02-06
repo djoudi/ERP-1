@@ -27,4 +27,3 @@ bootstrap:
 watch:
 	coffee --watch --output ${SRCDIR}/app.js/ --compile ${SRCDIR}/app/ & 
 	recess --compile ${SRCDIR}/assets/less/app.less:${SRCDIR}/assets/css/app.css --watch &
-

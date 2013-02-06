@@ -3,7 +3,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
+  define(['jquery', 'underscore', 'backbone', 'models/clientes'], function($, _, Backbone, Clientes) {
     var ClientesRouter;
     return ClientesRouter = (function(_super) {
 
@@ -15,11 +15,18 @@
 
       ClientesRouter.prototype.routes = {
         '': "listar",
-        '/listar': "listar"
+        '/': "listar",
+        'listar': "listar"
       };
 
       ClientesRouter.prototype.listar = function() {
-        return console.log("abrir listagem");
+        var clientes;
+        clientes = new Clientes();
+        return clientes.fetch({
+          success: function() {
+            return console.log(clientes);
+          }
+        });
       };
 
       return ClientesRouter;

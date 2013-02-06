@@ -10,7 +10,8 @@ $app = new Slim();
 $app->post('/sessao', 'criarSessao');
 
 # Leitura dos dados do Cliente
-$app->get('/clientes/',autorizar(Permissoes::Usuario), 'listarClientes');
+$app->get('/clientes/'/*,autorizar(Permissoes::Usuario)*/, 'listarClientes');
+$app->post('/clientes/'/*,autorizar(Permissoes::Usuario)*/, 'criarClientes');
 
 
 try
@@ -240,3 +241,48 @@ function listarClientes()
 
 
 
+function criarClientes()
+{
+    $app = Slim::getInstance();
+
+
+
+    $attr =
+        array(
+            "cliente_id"       => $_POST["cliente_id"];      
+            "responsavel"      => $_POST["responsavel"];     
+            "cnpj"             => $_POST["cnpj"];            
+            "razaoSocial"      => $_POST["razaoSocial"];     
+            "endereco"         => $_POST["endereco"];        
+            "senhaAtendimento" => $_POST["senhaAtendimento"];
+            "numeroCliente"    => $_POST["numeroCliente"];   
+            "usuarioGestor"    => $_POST["usuarioGestor"];   
+            "senhaGestor"      => $_POST["senhaGestor"];     
+        );
+     # Início da construção da Query
+    $sql = "INSERT INTO clientes ("+array_keys($attr)+") ";
+
+    # Certificando que não haverá sobrecarga desnecessária no servidor
+    $pagination  = " ORDER BY ". GET("order"  , "razaoSocial");
+    $pagination .= " LIMIT " .intval(GET("limit"  , 10));
+    $pagination .= " OFFSET ".intval(GET("offset" , 0)); 
+
+    try {
+        $db = obterConexao();
+
+        $stmt = $db->query("SELECT count(*) as total FROM ($sql) as t ");
+        $count = intval( current(current($stmt->fetchAll(PDO::FETCH_ASSOC))) );
+        $stmt = $db->query($sql.$pagination);
+        $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $db = null;
+
+        echo json_encode(array(
+               'sucesso'   => true,
+               'data'      => $clientes,
+               'total'     => $count
+             ));
+
+    } catch(PDOException $e) {
+        reportarFalha($e);
+    }
+}

@@ -1,9 +1,9 @@
 /*------- RESPONSIVE -------*/
 
 *{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 html, body{
     height: auto !important;
@@ -422,7 +422,7 @@ table.table thead .sorting_desc_disabled { background: url('../img/sort_desc_dis
 .user_side{
   padding: 15px 15px;
   margin: 0;
-  background-color: #3D3E43;
+  background-color: #5F4444;
 }
 .user_side img{
   float:left;
@@ -496,7 +496,7 @@ table.table thead .sorting_desc_disabled { background: url('../img/sort_desc_dis
 /*  Navbar  */
 .navbar-fixed-top .navbar-inner{
   height: 45px;
-  background: #292A2F;  
+  background: #361212;  
   border: none;  
 }
 .navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner{
@@ -578,11 +578,11 @@ table.table thead .sorting_desc_disabled { background: url('../img/sort_desc_dis
   border-left: 2px solid #F5C294;
 }
 .accordion-heading{
-  background: #292A2F;
+  background: #361212;
 }
 .accordion-heading a{
   border-left: 2px solid #292A2F;
-  border-bottom: 1px dashed #313131;
+  border-bottom: 1px dashed #633535;
 }
 .accordion-group a{
   display: block;
@@ -596,7 +596,7 @@ table.table thead .sorting_desc_disabled { background: url('../img/sort_desc_dis
   border-radius: 0;
 }
 .accordion-inner{
-  background-color: #3D3E43;
+  background-color: #5F4444;
   border: none;
   padding: 9px 0;
 }
@@ -1550,7 +1550,7 @@ table.table thead .sorting_desc_disabled { background: url('../img/sort_desc_dis
       position: fixed;
       width: 200px;
       height: 100% !important;
-      background: #292A2F; 
+      background: #361212; 
       left: 0!important;
     }
     .main_container{
@@ -1560,4 +1560,10 @@ table.table thead .sorting_desc_disabled { background: url('../img/sort_desc_dis
     .logo {
       margin: 0 90px 0 15px;
     }    
+}
+
+.user_side .icon_user
+{
+  font-size: 20px;
+  color: #FFF
 }

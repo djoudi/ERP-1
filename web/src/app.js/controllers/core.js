@@ -4,50 +4,49 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(['jquery', 'underscore', 'backbone', 'sprintf', 'subroute'], function($, _, Backbone) {
-    var Core;
-    return Core = (function(_super) {
+  define(['jquery', 'underscore', 'backbone', 'sprintf', 'views/appview'], function($, _, Backbone, sprintf, AppView) {
+    var CoreController;
+    return CoreController = (function(_super) {
 
-      __extends(Core, _super);
+      __extends(CoreController, _super);
 
-      function Core() {
+      function CoreController() {
         this.handleError = __bind(this.handleError, this);
-        return Core.__super__.constructor.apply(this, arguments);
+        return CoreController.__super__.constructor.apply(this, arguments);
       }
 
-      Core.prototype.routes = {
+      CoreController.prototype.routes = {
         ":controller(/*path)": 'loadModuleRouter'
       };
 
-      Core.prototype.subRouters = {};
+      CoreController.prototype.subRouters = {};
 
-      Core.prototype.initialize = function() {
-        Core.__super__.initialize.call(this);
+      CoreController.prototype.initialize = function() {
+        CoreController.__super__.initialize.call(this);
         this.setResponseCachers();
-        return Backbone.history.start();
+        Backbone.history.start();
+        this.view = new AppView();
+        return this.view.render().$el.appendTo("body");
       };
 
-      Core.prototype.loadModuleRouter = function(controller) {
+      CoreController.prototype.loadModuleRouter = function(controller) {
         var controllerName,
           _this = this;
         controller = controller.toLowerCase();
         controllerName = controller.substr(0, 1).toUpperCase() + controller.substr(1).toLowerCase();
         if (!(this.subRouters[controller] != null) && controller !== "core") {
-          return require(["controllers/" + controller + "/router"], function(Controller) {
-            console.log(sprintf("Starting controller %$1s ...", controllerName));
-            return _this.subRouters[controller] = new Controller(controller);
-          }, function(error) {
-            console.error(sprintf("%$1s controller required but not found", controllerName));
-            return _this.handleError(error);
+          return require(["controllers/" + controller], function(Controller) {
+            console.log(sprintf("Starting controller %1$s ...", controllerName));
+            if (!(_this.subRouters[controller] != null) && controller !== "core") {
+              return _this.subRouters[controller] = new Controller(controller);
+            }
           });
-        } else {
-          return subRouters[controller];
         }
       };
 
-      Core.prototype.handleError = function(error) {};
+      CoreController.prototype.handleError = function(error) {};
 
-      Core.prototype.setResponseCachers = function() {
+      CoreController.prototype.setResponseCachers = function() {
         var _this = this;
         return $.ajaxSetup({
           statusCode: {
@@ -60,9 +59,9 @@
         });
       };
 
-      return Core;
+      return CoreController;
 
-    })(Backbone.SubRouter);
+    })(Backbone.Router);
   });
 
 }).call(this);

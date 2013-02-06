@@ -1,118 +1,170 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+-- phpMyAdmin SQL Dump
+-- version 3.5.0-rc1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tempo de Geração: 06/02/2013 às 01:05:22
+-- Versão do Servidor: 5.5.20
+-- Versão do PHP: 5.3.15
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
--- -----------------------------------------------------
--- Table `pessoas`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `pessoas` ;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
-CREATE  TABLE IF NOT EXISTS `pessoas` (
-  `pessoa_id` INT NOT NULL AUTO_INCREMENT ,
-  `nome` VARCHAR(100) NOT NULL ,
-  `email` VARCHAR(230) NULL ,
-  `endereco` VARCHAR(255) NULL ,
-  PRIMARY KEY (`pessoa_id`) )
-ENGINE = InnoDB;
+--
+-- Banco de Dados: `topclaro_erp`
+--
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `clientes`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `clientes` ;
+--
+-- Estrutura da tabela `clientes`
+--
 
-CREATE  TABLE IF NOT EXISTS `clientes` (
-  `cliente_id` INT NOT NULL AUTO_INCREMENT ,
-  `responsavel` INT NOT NULL ,
-  `cnpj` VARCHAR(15) NOT NULL ,
-  `razaoSocial` VARCHAR(140) NOT NULL ,
-  `endereco` VARCHAR(255) NOT NULL ,
-  `senhaAtendimento` VARCHAR(4) NULL ,
-  `numeroCliente` VARCHAR(45) NULL ,
-  `usuarioGestor` VARCHAR(45) NULL ,
-  `senhaGestor` VARCHAR(45) NULL ,
-  PRIMARY KEY (`cliente_id`) ,
-  UNIQUE INDEX `cnpj_UNIQUE` (`cnpj` ASC) ,
-  INDEX `fk_empresas_pessoas1_idx` (`responsavel` ASC) ,
-  CONSTRAINT `fk_empresas_pessoas1`
-    FOREIGN KEY (`responsavel` )
-    REFERENCES `pessoas` (`pessoa_id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `cliente_id` int(11) NOT NULL AUTO_INCREMENT,
+  `responsavel` int(11) NOT NULL,
+  `cnpj` varchar(15) NOT NULL,
+  `razaoSocial` varchar(140) NOT NULL,
+  `endereco` varchar(255) NOT NULL,
+  `senhaAtendimento` varchar(4) DEFAULT NULL,
+  `numeroCliente` varchar(45) DEFAULT NULL,
+  `usuarioGestor` varchar(45) DEFAULT NULL,
+  `senhaGestor` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`cliente_id`),
+  UNIQUE KEY `cnpj_UNIQUE` (`cnpj`),
+  KEY `fk_empresas_pessoas1_idx` (`responsavel`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
+--
+-- Extraindo dados da tabela `clientes`
+--
 
--- -----------------------------------------------------
--- Table `usuarios`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `usuarios` ;
+INSERT INTO `clientes` (`cliente_id`, `responsavel`, `cnpj`, `razaoSocial`, `endereco`, `senhaAtendimento`, `numeroCliente`, `usuarioGestor`, `senhaGestor`) VALUES
+(1, 2, '20482776000100', 'Top Claro LTDA', 'Rua C, QD F2, LT 16, nº 164, Leste Vila Nova, Goiânia, Goiás', '1234', '1231231231', 'tc123', 'senha');
 
-CREATE  TABLE IF NOT EXISTS `usuarios` (
-  `usuario_id` INT NOT NULL AUTO_INCREMENT ,
-  `pessoa` INT NOT NULL ,
-  `senha` VARCHAR(15) NOT NULL ,
-  `permissao` VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (`usuario_id`) ,
-  INDEX `fk_usuario_pessoa_idx` (`pessoa` ASC) ,
-  UNIQUE INDEX `pessoa_id_UNIQUE` (`pessoa` ASC) ,
-  CONSTRAINT `fk_usuario_pessoa`
-    FOREIGN KEY (`pessoa` )
-    REFERENCES `pessoas` (`pessoa_id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+-- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `pessoas`
+--
 
--- -----------------------------------------------------
--- Table `sessoes`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `sessoes` ;
+CREATE TABLE IF NOT EXISTS `pessoas` (
+  `pessoa_id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(230) DEFAULT NULL,
+  `endereco` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`pessoa_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
-CREATE  TABLE IF NOT EXISTS `sessoes` (
-  `hash` VARCHAR(255) NOT NULL ,
-  `usuario` INT NOT NULL ,
-  `data_criacao` TIMESTAMP NOT NULL ,
-  PRIMARY KEY (`hash`) ,
-  INDEX `fk_sessao_usuario1_idx` (`usuario` ASC) ,
-  UNIQUE INDEX `hash_UNIQUE` (`hash` ASC) ,
-  CONSTRAINT `fk_sessao_usuario1`
-    FOREIGN KEY (`usuario` )
-    REFERENCES `usuarios` (`usuario_id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+--
+-- Extraindo dados da tabela `pessoas`
+--
 
+INSERT INTO `pessoas` (`pessoa_id`, `nome`, `email`, `endereco`) VALUES
+(1, 'Edygar de Lima Oliveira', 'edygardelima@gmail.com', 'Rua C, QD F2, LT 16, nº 164, Leste Vila Nova, Goiânia, Goiás'),
+(2, 'Ricardo Rodrigues Barbosa', 'ricardo@topclaro.com.br', 'Av. Independencia, Cond. Janaina, Apt. 102B, Leste Vila Nova, Goiânia, Goiás');
 
--- -----------------------------------------------------
--- Table `registros`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `registros` ;
+-- --------------------------------------------------------
 
-CREATE  TABLE IF NOT EXISTS `registros` (
-  `registro_id` INT NOT NULL AUTO_INCREMENT ,
-  `empresa` INT NOT NULL ,
-  `autor` INT NOT NULL ,
-  `titulo` VARCHAR(140) NULL ,
-  `descricao` TEXT NULL ,
-  `data_criacao` TIMESTAMP NOT NULL ,
-  PRIMARY KEY (`registro_id`) ,
-  INDEX `fk_registros_empresas1_idx` (`empresa` ASC) ,
-  INDEX `fk_registros_usuarios1_idx` (`autor` ASC) ,
-  CONSTRAINT `fk_registros_empresas1`
-    FOREIGN KEY (`empresa` )
-    REFERENCES `clientes` (`cliente_id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_registros_usuarios1`
-    FOREIGN KEY (`autor` )
-    REFERENCES `usuarios` (`usuario_id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+--
+-- Estrutura da tabela `registros`
+--
 
+CREATE TABLE IF NOT EXISTS `registros` (
+  `registro_id` int(11) NOT NULL AUTO_INCREMENT,
+  `empresa` int(11) NOT NULL,
+  `autor` int(11) NOT NULL,
+  `titulo` varchar(140) DEFAULT NULL,
+  `descricao` text,
+  `data_criacao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`registro_id`),
+  KEY `fk_registros_empresas1_idx` (`empresa`),
+  KEY `fk_registros_usuarios1_idx` (`autor`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+-- --------------------------------------------------------
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+--
+-- Estrutura da tabela `sessoes`
+--
+
+CREATE TABLE IF NOT EXISTS `sessoes` (
+  `hash` varchar(255) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `data_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ip` text NOT NULL,
+  PRIMARY KEY (`hash`),
+  UNIQUE KEY `hash_UNIQUE` (`hash`),
+  KEY `fk_sessao_usuario1_idx` (`usuario_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `sessoes`
+--
+
+INSERT INTO `sessoes` (`hash`, `usuario_id`, `data_login`, `ip`) VALUES
+('M2g4bDE3OWJ1bWc5ZGhiZGs3YzB0cThiaTE3OGVmYzc4YTliN2RlMDNiZjE2YjNlNmU1ZTUxYzZmMQ==', 1, '2013-02-03 11:39:54', '127.0.0.1'),
+('M2g4bDE3OWJ1bWc5ZGhiZGs3YzB0cThiaTE3OTlkNTI3ZDJmMWNmYTZlOWE4ZDZjYmMxNzhiZjRjNQ==', 1, '2013-02-03 11:40:22', '127.0.0.1'),
+('M2g4bDE3OWJ1bWc5ZGhiZGs3YzB0cThiaTFjMGNmYTQwOTE0NTA3NTZlMDU2OTY2ZGYxMWIyNWZiZQ==', 1, '2013-02-03 11:39:56', '127.0.0.1');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `usuario_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pessoa_id` int(11) NOT NULL,
+  `senha` varchar(32) NOT NULL,
+  `permissao` int(45) NOT NULL,
+  PRIMARY KEY (`usuario_id`),
+  UNIQUE KEY `pessoa_id_UNIQUE` (`pessoa_id`),
+  KEY `fk_usuario_pessoa_idx` (`pessoa_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`usuario_id`, `pessoa_id`, `senha`, `permissao`) VALUES
+(1, 1, 'd677465a55b64dcab9cd3d6a3aae5db5', 1);
+
+--
+-- Restrições para as tabelas dumpadas
+--
+
+--
+-- Restrições para a tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD CONSTRAINT `fk_empresas_pessoas1` FOREIGN KEY (`responsavel`) REFERENCES `pessoas` (`pessoa_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Restrições para a tabela `registros`
+--
+ALTER TABLE `registros`
+  ADD CONSTRAINT `fk_registros_empresas1` FOREIGN KEY (`empresa`) REFERENCES `clientes` (`cliente_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_registros_usuarios1` FOREIGN KEY (`autor`) REFERENCES `usuarios` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Restrições para a tabela `sessoes`
+--
+ALTER TABLE `sessoes`
+  ADD CONSTRAINT `fk_sessao_usuario1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Restrições para a tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `fk_usuario_pessoa` FOREIGN KEY (`pessoa_id`) REFERENCES `pessoas` (`pessoa_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

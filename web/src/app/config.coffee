@@ -23,11 +23,14 @@ requirejs.config
 		bootstrap: 	'../assets/js/libs/bootstrap'
 		underscore: '../assets/js/libs/underscore'
 		subroute: 	'../assets/js/libs/backbone.subroute'
-		subroute: 	'../assets/js/libs/sprintf'
+		sprintf: 	'../assets/js/libs/sprintf'
+		text:		'../assets/js/libs/text'
 
 
 require [
 	'controllers/core'
+	'subroute'
+	'text'
 ],
-(Core)->
-	new Core()
+(CoreController)->
+	new CoreController()
