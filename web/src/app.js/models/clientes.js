@@ -17,6 +17,10 @@
 
       Clientes.prototype.url = Settings["API_URL"] + "/clientes";
 
+      Clientes.prototype.comparator = function(model) {
+        return model.get("name");
+      };
+
       Clientes.prototype.parse = function(response) {
         return response.data;
       };
