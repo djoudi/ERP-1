@@ -33,21 +33,21 @@ App::after(function($request, $response)
 |
 */
 
-Route::filter('apiauth', function()
-{
-    // Test against the presence of Basic Auth credentials
-    $creds = [
-        'username' => Request::getUser(),
-        'password' => Request::getPassword(),
-    ];
-    if ( ! Auth::attempt($creds) ) {
-        return Response::json([
-            'error' => true,
-            'message' => 'Unauthorized Request'],
-            401
-        );
-    }
-});
+// Route::filter('apiauth', function()
+// {
+//     // Test against the presence of Basic Auth credentials
+//     $creds = [
+//         'username' => Request::getUser(),
+//         'password' => Request::getPassword(),
+//     ];
+//     if ( ! Auth::attempt($creds) ) {
+//         return Response::json([
+//             'error' => true,
+//             'message' => 'Unauthorized Request'],
+//             401
+//         );
+//     }
+// });
 
 
 Route::filter('guest', function()

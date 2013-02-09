@@ -1,12 +1,20 @@
 <?php
 
 class Contato extends Eloquent {
-
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
+	
+	public $timestamps = false;
 	protected $table = 'contatos';
+
+
+
+	 public function emails()
+     {
+          return $this->hasMany('Email', 'contato');
+     }
+
+	 public function telefones()
+     {
+          return $this->hasMany('Telefone', 'contato');
+     }
 
 }
