@@ -11,7 +11,7 @@ define [
 		subRouters: { }
 		initialize: () ->
 			super()
-			@setResponseCachers()
+			@setResponseCatchers()
 			Backbone.history.start()
 
 			@view = new AppView()
@@ -36,7 +36,7 @@ define [
 
 
 		handleError: (error)=>
-		setResponseCachers: ->
+		setResponseCatchers: ->
 			$.ajaxSetup
 				statusCode:
 					401: =>    
