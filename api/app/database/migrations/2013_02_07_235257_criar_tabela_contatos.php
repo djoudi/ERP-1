@@ -15,7 +15,7 @@ class CriarTabelaContatos extends Migration {
 		{
 			$table->increments('id');
 			$table->string('nome');
-			$table->string('pessoaJuridica')->default("pessoa-fisica");
+			$table->boolean('pessoaJuridica')->default(false);
 			$table->string('numeroDocumento', 15);
 			$table->text('descricao')->nullable()->fulltext();
 

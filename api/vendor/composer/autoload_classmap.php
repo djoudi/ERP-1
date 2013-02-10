@@ -11,6 +11,8 @@ return array(
     'ClientesController' => $baseDir . '/app/controllers/ClientesController.php',
     'Contato' => $baseDir . '/app/models/Contato.php',
     'ContatosController' => $baseDir . '/app/controllers/ContatosController.php',
+    'CreateTabelaContatosEmails' => $baseDir . '/app/database/migrations/2013_02_10_171421_create_tabela_contatos_emails.php',
+    'CreateTabelaContatosTelefones' => $baseDir . '/app/database/migrations/2013_02_10_171440_create_tabela_contatos_telefones.php',
     'CriarTabelaClientes' => $baseDir . '/app/database/migrations/2013_02_08_000609_criar_tabela_clientes.php',
     'CriarTabelaContatos' => $baseDir . '/app/database/migrations/2013_02_07_235257_criar_tabela_contatos.php',
     'CriarTabelaEmails' => $baseDir . '/app/database/migrations/2013_02_08_003556_criar_tabela_emails.php',

@@ -14,7 +14,6 @@ class CriarTabelaEmails extends Migration {
 		Schema::create('emails', function($table)
 		{
 			$table->increments('id');
-			$table->integer('contato')->unsigned()->foreign()->references('id')->on('contatos');
 			$table->string('identificacao');
 			$table->string('email', 320);
 		});

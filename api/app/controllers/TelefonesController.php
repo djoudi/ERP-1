@@ -9,10 +9,25 @@ class TelefonesController extends BaseController {
 	 */
 	public function index($contato_id = null)
 	{
+		$response = [];
+
 		if ($contato_id)
-			return Contato::find($contato_id)->telefones;//
-		else 
-			return Telefone::all();
+		{
+			$total = Contato::find($contato_id)->telefones->count();
+			$response["data"] = Contato::find($contato_id)->telefones()->skip($offset=Input::get('offset', 0))->take($limit=Input::get('limit', 10))->get()->toArray();
+		}
+		else
+		{
+			$total = Telefone::count();
+			$response["data"] = Telefone::skip($offset=Input::get('offset', 0))->take($limit=Input::get('limit', 10))->get()->toArray();
+		}
+		$response['metadata'] = [
+			"total" => $total,
+			"found" => count($response["data"]),
+			"offset"=> intval($offset),
+			"errors"=> 0
+		];
+		return Response::json($response,200);
 	}
 
 	/**

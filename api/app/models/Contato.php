@@ -9,12 +9,12 @@ class Contato extends Eloquent {
 
 	 public function emails()
      {
-          return $this->hasMany('Email', 'contato');
+          return $this->belongsToMany('Email', 'contatos_emails');
      }
 
-	 public function telefones()
+      public function telefones()
      {
-          return $this->hasMany('Telefone', 'contato');
+          return $this->belongsToMany('Telefone', 'contatos_telefones');
      }
 
 }

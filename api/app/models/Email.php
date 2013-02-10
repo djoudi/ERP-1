@@ -13,8 +13,8 @@ class Email extends Eloquent {
 
 
 
-	public function contato()
+	public function contatos()
     {
-        return $this->belongsTo('Contato', 'contato');
+		return $this->belongsToMany('Contato', 'emails_contatos');
     }
 }

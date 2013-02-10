@@ -5,39 +5,46 @@ class TabelaEmailsSeeder extends Seeder {
 
     public function run()
     {
+        DB::table('contatos_emails')->truncate();
         DB::table('emails')->truncate();
-        $contatos = Contato::all();
 
 
-        Email::create([
-            'contato'           => $contatos[0]->id,
-            'identificacao'     => "Trabalho",
-            'email'             => "ricardo@topclaro.com.br"
-        ]);
+        Contato::find(1)->emails()->save(
+            new Email([
+                'id'                => 1,  
+                'identificacao'     => "Trabalho",
+                'email'             => "ricardo@topclaro.com.br"
+            ]));
 
-        Email::create([
-            'contato'           => $contatos[1]->id,
-            'identificacao'     => "Trabalho",
-            'email'             => "edygardelima@gmail.com"
-        ]);
 
-        Email::create([
-            'contato'           => $contatos[2]->id,
-            'identificacao'     => "Trabalho",
-            'email'             => "bruno@gilgrafica.com.br"
-        ]);
+        Contato::find(2)->emails()->save(
+            new Email([
+                'id'                => 2,   
+                'identificacao'     => "Trabalho",
+                'email'             => "edygardelima@gmail.com"
+            ]));
 
-        Email::create([
-            'contato'           => $contatos[2]->id,
-            'identificacao'     => "Trabalho",
-            'email'             => "gilgrafica@gilgrafica.com.br"
-        ]);
+        Contato::find(3)->emails()->save(
+            new Email([
+                'id'                => 3,   
+                'identificacao'     => "Trabalho",
+                'email'             => "bruno@gilgrafica.com.br"
+            ]));
 
-        Email::create([
-            'contato'           => $contatos[3]->id,
-            'identificacao'     => "Trabalho",
-            'email'             => "contato@topclaro.com.br"
-        ]);
+        Contato::find(3)->emails()->save(
+            new Email([
+                'id'                => 4,   
+                'identificacao'     => "Trabalho",
+                'email'             => "gilgrafica@gilgrafica.com.br"
+            ]));
+
+        Contato::find(4)->emails()->save(
+            new Email([
+                'id'                => 5,   
+                'identificacao'     => "Trabalho",
+                'email'             => "contato@topclaro.com.br"
+            ]));
+
     }
 
 }

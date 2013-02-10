@@ -12,7 +12,7 @@ class Telefone extends Eloquent {
 
 
 	public function contato()
-	{
-		return $this->belongsTo('contato', 'contato');
+	{		
+		return $this->belongsToMany('Contato', 'emails_contatos');
 	}
 }

@@ -9,34 +9,17 @@ class ContatosController extends BaseController {
 	 */
 	public function index()
 	{
+		$response = [];
 
-		var_export(func_get_args());
-		return;
 		$total = Contato::count();
-		$contatos = Contato::skip($offset=Input::get('offset', 0))->take($limit=Input::get('limit', 10))->get();
-
-
-
-		if (($found = count($contatos)) < $total)
-		{
-			header(sprintf("Content-Range: token %d-%d/%d",$offset, $offset+$found, $total));
-			$code = 206;
-		}
-		else
-			$code = 200;
-
-
-		return Response::json([
-			'errors' => 0,
-			'data' => $contatos->toArray()
-		],$code);
-
-
-
-
-$response->headers->set('Content-Type', $value);
-
-return $response;
+		$response["data"] = Contato::skip($offset=Input::get('offset', 0))->take($limit=Input::get('limit', 10))->get()->toArray();
+		$response['metadata'] = [
+			"total" => $total,
+			"found" => count($response["data"]),
+			"offset"=> intval($offset),
+			"errors"=> 0
+		];
+		return Response::json($response,200);
 	}
 
 	/**
@@ -82,5 +65,4 @@ return $response;
 	{
 		//
 	}
-
 }
