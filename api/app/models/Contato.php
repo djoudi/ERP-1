@@ -1,8 +1,7 @@
 <?php
 
-class Contato extends Eloquent {
-	
-	public $timestamps = false;
+class Contato extends Eloquent
+{	
 	protected $table = 'contatos';
 
 

@@ -14,10 +14,10 @@ class CriarTabelaClientes extends Migration {
 		Schema::create('clientes', function($table)
 		{
 			$table->increments('id');
+			$table->integer('empresa')->unsigned()->foreign()->references('id')->on('contatos');
 			$table->integer('consultor')->unsigned()->foreign()->references('id')->on('contatos');
-			$table->integer('contato')->unsigned()->foreign()->references('id')->on('contatos');
-			$table->integer('numeroCliente');
 			$table->integer('administrador')->unsigned()->foreign()->references('id')->on('contatos');
+			$table->integer('numeroCliente');
 			$table->string('usuarioAtendimento', 45);
 			$table->string('senhaAtendimento', 4);
 			$table->string('usuarioGestor', 45);

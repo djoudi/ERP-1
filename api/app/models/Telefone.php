@@ -11,8 +11,8 @@ class Telefone extends Eloquent {
 	protected $table = 'telefones';
 
 
-	public function contato()
+	public function contatos()
 	{		
-		return $this->belongsToMany('Contato', 'emails_contatos');
+		return $this->belongsToMany('Contato', 'contatos_telefones');
 	}
 }

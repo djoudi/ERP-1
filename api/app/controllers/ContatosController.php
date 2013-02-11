@@ -10,8 +10,8 @@ class ContatosController extends BaseController {
 	public function index()
 	{
 		$response = [];
-
 		$total = Contato::count();
+
 		$response["data"] = Contato::skip($offset=Input::get('offset', 0))->take($limit=Input::get('limit', 10))->get()->toArray();
 		$response['metadata'] = [
 			"total" => $total,
@@ -19,7 +19,11 @@ class ContatosController extends BaseController {
 			"offset"=> intval($offset),
 			"errors"=> 0
 		];
-		return Response::json($response,200);
+
+		return Response::json(
+			$response,
+			200
+		);
 	}
 
 	/**

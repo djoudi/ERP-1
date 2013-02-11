@@ -11,7 +11,7 @@ class TabelaEmailsSeeder extends Seeder {
 
         Contato::find(1)->emails()->save(
             new Email([
-                'id'                => 1,  
+                'id'        => 1,  
                 'identificacao'     => "Trabalho",
                 'email'             => "ricardo@topclaro.com.br"
             ]));
@@ -19,26 +19,26 @@ class TabelaEmailsSeeder extends Seeder {
 
         Contato::find(2)->emails()->save(
             new Email([
-                'id'                => 2,   
+                'id'        => 2,   
                 'identificacao'     => "Trabalho",
                 'email'             => "edygardelima@gmail.com"
             ]));
 
         Contato::find(3)->emails()->save(
             new Email([
-                'id'                => 3,   
+                'id'        => 3,   
                 'identificacao'     => "Trabalho",
                 'email'             => "bruno@gilgrafica.com.br"
             ]));
 
-        Contato::find(3)->emails()->save(
+        Contato::find(4)->emails()->save(
             new Email([
                 'id'                => 4,   
                 'identificacao'     => "Trabalho",
                 'email'             => "gilgrafica@gilgrafica.com.br"
             ]));
 
-        Contato::find(4)->emails()->save(
+        Contato::find(5)->emails()->save(
             new Email([
                 'id'                => 5,   
                 'identificacao'     => "Trabalho",

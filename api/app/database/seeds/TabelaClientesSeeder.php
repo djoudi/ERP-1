@@ -1,12 +1,11 @@
 <?php
 
 
-class TabelaContatosSeeder extends Seeder {
+class TabelaClientesSeeder extends Seeder {
 
     public function run()
     {
         DB::table('contatos')->truncate();
-        $contatos = Contato::all();
 
         Contato::create([
             'consultor'        => $contatos[0]->id,

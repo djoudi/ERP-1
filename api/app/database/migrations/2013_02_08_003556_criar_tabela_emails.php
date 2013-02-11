@@ -15,7 +15,7 @@ class CriarTabelaEmails extends Migration {
 		{
 			$table->increments('id');
 			$table->string('identificacao');
-			$table->string('email', 320);
+			$table->string('email', 320)->unique();
 		});
 	}
 

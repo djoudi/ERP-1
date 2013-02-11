@@ -15,6 +15,6 @@ class Email extends Eloquent {
 
 	public function contatos()
     {
-		return $this->belongsToMany('Contato', 'emails_contatos');
+        return $this->belongsToMany('Contato', 'contatos_emails');
     }
 }

@@ -14,9 +14,10 @@
 Route::resource('contatos', 'ContatosController');
 
 // Acesso direto aos Recursos
-Route::resource('/emails'    , 'EmailsController');   
-Route::resource('/telefones' , 'TelefonesController');
+Route::get('/emails'    , 'EmailsController@index');
+Route::get('/emails/{id}/contatos', 'EmailsController@contatos')->where("id","[0-9]+");
 
+Route::resource('/telefones' , 'TelefonesController');
 
 // Acesso através dos Contatos
 Route::group(array('prefix' => 'contatos/{id}'), function()
@@ -24,8 +25,6 @@ Route::group(array('prefix' => 'contatos/{id}'), function()
 	Route::resource('emails'    , 'EmailsController');   
 	Route::resource('telefones' , 'TelefonesController');
 });
-
-
 
 
 Route::get('/', function()

@@ -14,7 +14,6 @@ class CreateTabelaContatosTelefones extends Migration {
 		Schema::create('contatos_telefones', function($table)
 		{
 			$table->increments('id');
-
 			$table->integer('contato_id')->unsigned()->foreign()->references('id')->on('contatos');
 			$table->integer('telefone_id')->unsigned()->foreign()->references('id')->on('telefone');
 		});
