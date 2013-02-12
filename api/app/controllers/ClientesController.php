@@ -9,7 +9,7 @@ class ClientesController extends BaseController {
 	 */
 	public function index()
 	{
-		return Cliente::all();
+		//
 	}
 
 	/**

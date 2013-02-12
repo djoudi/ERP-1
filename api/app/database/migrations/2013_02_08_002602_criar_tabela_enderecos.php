@@ -23,6 +23,7 @@ class CriarTabelaEnderecos extends Migration {
 			$table->string('localidade', 200);
 			$table->string('uf', 2);
 			$table->string('cep', 8)->nullable();
+			$table->timestamps();
 		});
 	}
 

@@ -1,6 +1,6 @@
 <?php
 
-class TelefonesController extends BaseController {
+class EnderecosController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -13,9 +13,9 @@ class TelefonesController extends BaseController {
 
 		if ($contato_id)
 		{
-			$total = Contato::find($contato_id)->telefones->count();
+			$total = Contato::find($contato_id)->enderecos->count();
 			$response["data"] = Contato::find($contato_id)
-				->telefones()
+				->enderecos()
 				->skip($offset=Input::get('offset', 0))
 				->take($limit=Input::get('limit', 10))
 				->get()
@@ -23,8 +23,8 @@ class TelefonesController extends BaseController {
 		}
 		else
 		{
-			$total = Telefone::count();
-			$response["data"] = Telefone::skip($offset=Input::get('offset', 0))
+			$total = Endereco::count();
+			$response["data"] = Endereco::skip($offset=Input::get('offset', 0))
 				->take($limit=Input::get('limit', 10))
 				->get()
 				->toArray();
@@ -57,15 +57,19 @@ class TelefonesController extends BaseController {
 					],
 					"modified"	=> 0,
 					"offset"	=> 0,
-					"total"		=> $contato->telefones()->count(),
+					"total"		=> $contato->enderecos()->count(),
 				]
-			],404);		
-		
+			],404);
 		
 		$defaults = [
-			"identificacao" => "telefone",
-			"numero" => "00000000",
-			"operadora" => ""
+			'identificacao' => '',
+			'numero' => '',
+			'logradouro' => '',
+			'bairro' => '',
+			'complemento' => '',
+			'localidade' => '',
+			'uf' => '',
+			'cep' => '',
 		];
 
 		if (!($inputs = Input::all()))
@@ -75,8 +79,10 @@ class TelefonesController extends BaseController {
 
 		$validator = Validator::make($inputs,
 		    [
-			    'identificacao' => 'required',
-		    	'numero' => ['required', 'numeric']
+			    'logradouro' => 'required',
+			    'bairro' => 'required',
+			    'localidade' => 'required',
+			    'uf' => 'required',
 		    ]);
 
 		if ($validator->fails())
@@ -87,38 +93,38 @@ class TelefonesController extends BaseController {
 				"messages"	=> $messages,
 				"modified"	=> 0,
 				"offset"	=> 0,
-				"total"		=> $contato->telefones()->count(),
+				"total"		=> $contato->enderecos()->count(),
 			]],400);
 		}
 
-		$telefone = $contato->telefones()->where('numero',$inputs['numero']);
-		if ($telefone->count())
+		$endereco = $contato->enderecos()->where('endereco',$inputs['endereco']);
+		if ($endereco->count())
 			return Response::json([
-				"data" => $telefone->first()->toArray(),
+				"data" => $endereco->first()->toArray(),
 				"metadata"=> [
 					"errors"	=> 1,
 					"found"		=> 1,
 					"messages"	=> [
-						"numero" => "Telefone já pertencente ao contato"
+						"endereco" => "Endereco já pertencente ao contato"
 					],
 					"modified"	=> 0,
 					"offset"	=> 0,
-					"total"		=> $contato->telefones()->count(),
+					"total"		=> $contato->enderecos()->count(),
 				]
 			],303);
 
-		$contato->telefones()->save(
-			$telefone = new Telefone( $inputs )
+		$contato->enderecos()->save(
+			$endereco = new Endereco( $inputs )
 		);
 
 		return Response::json([
-			"data" => $telefone->toArray(),
+			"data" => $endereco->toArray(),
 			"metadata"=> [
 				"errors"	=> 0,
 				"found"		=> 1,
 				"modified"	=> 1,
 				"offset"	=> 0,
-				"total"		=> $contato->telefones()->count(),
+				"total"		=> $contato->enderecos()->count(),
 			]
 		],200);
 
@@ -129,7 +135,7 @@ class TelefonesController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function show($contato_id, $telefone_id)
+	public function show($contato_id, $endereco_id)
 	{
 		if (!($contato=Contato::find($contato_id)))
 			return Response::json([
@@ -142,36 +148,36 @@ class TelefonesController extends BaseController {
 					],
 					"modified"	=> 0, 
 					"offset" => 0,
-					"total"  => $contato->telefones()->count(),
+					"total"  => $contato->enderecos()->count(),
 				]
 			], 404);
 
-		$telefone = $contato->telefones()->find($telefone_id);
+		$endereco = $contato->enderecos()->find($endereco_id);
 
-		if ($telefone)
+		if ($endereco)
 			return Response::json([
-				'data' => $telefone->toArray(),
+				'data' => $endereco->toArray(),
 				'metadata' => [
 					"errors" 	=> 0,
 					"found"	 	=> 1,
 					"offset" 	=> 0,
-					"total"  	=> $contato->telefones()->count(),
-					'modified'	=> 0, 
+					"total"  	=> $contato->enderecos()->count(),
+					'modified'	=> 1, 
 				]
-			], 200 );
+			], 200);
 		else
 			return Response::json([
 				'metadata' => [
 					"errors" 	=> 1,
 					"found"	 	=> 0,
 					"offset" 	=> 0,
-					"total"  	=> $contato->telefones()->count(),
+					"total"  	=> $contato->enderecos()->count(),
 					"messages" 	=> [
-						"telefone" => "Telefone não foi encontrado"
+						"endereco" => "Endereco não foi encontrado"
 					],
 					"modified" 	=> 0, 
 				]
-			], 404 );
+			], 404);
 	}
 
 
@@ -181,7 +187,7 @@ class TelefonesController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function update($contato_id, $telefone_id)
+	public function update($contato_id, $endereco_id)
 	{
 		if (!($contato=Contato::find($contato_id)))
 			return Response::json([
@@ -194,28 +200,35 @@ class TelefonesController extends BaseController {
 					],
 					"modified"	=> 0, 
 					"offset" => 0,
-					"total"  => $contato->telefones()->count(),
+					"total"  => $contato->enderecos()->count(),
 				]
 			], 404);
 
-		if (!($telefone = $contato->telefones()->find($telefone_id)))
+
+		if (!($endereco = $contato->enderecos()->find($endereco_id)))
 			return Response::json([
 				'metadata' => [
 					"errors" 	=> 1,
 					"found"	 	=> 0,
 					"offset" 	=> 0,
-					"total"  	=> $contato->telefones()->count(),
+					"total"  	=> $contato->enderecos()->count(),
 					"messages" 	=> [
-						"telefone" => "Telefone não foi encontrado"
+						"endereco" => "Endereco não foi encontrado"
 					],
-					"modified" 	=> 0, 
+					"modified" 	=> 1, 
 				]
 			], 404 );
 
+
 		$defaults = [
-			"identificacao" => "telefone",
-			"numero" => "00000000",
-			"operadora" => ""
+			'identificacao' => '',
+			'numero' => '',
+			'logradouro' => '',
+			'bairro' => '',
+			'complemento' => '',
+			'localidade' => '',
+			'uf' => '',
+			'cep' => '',
 		];
 
 		if (!($inputs = Input::all()))
@@ -225,8 +238,10 @@ class TelefonesController extends BaseController {
 
 		$validator = Validator::make($inputs,
 		    [
-			    'identificacao' => 'required',
-		    	'numero' => ['required', 'numeric']
+		    	'logradouro' => 'min:1',
+			    'bairro' => 'min:1',
+			    'localidade' => 'min:1',
+			    'uf' => 'min:1',
 		    ]);
 
 		if ($validator->fails())
@@ -237,23 +252,23 @@ class TelefonesController extends BaseController {
 				"messages"	=> $validator->messages()->toArray(),
 				"modified"	=> 0,
 				"offset"	=> 0,
-				"total"		=> $contato->telefones()->count(),
+				"total"		=> $contato->enderecos()->count(),
 			]],400);
 		}
 
 		foreach($inputs as $attribute=>$value)
-			$telefone->{$attribute} = $value;
+			$endereco->{$attribute} = $value;
 
-		$telefone->save();
+		$endereco->save();
 
 		return Response::json([
-			'data' => $telefone->toArray(),
+			'data' => $endereco->toArray(),
 			'metadata' => [
 				"errors" 	=> 0,
 				"found"	 	=> 1,
 				"offset" 	=> 0,
-				"total"  	=> $contato->telefones()->count(),
-				'modified'	=> 1, 
+				"total"  	=> $contato->enderecos()->count(),
+				'modified'	=> 1 
 			]
 		], 200 );
 	
@@ -264,14 +279,14 @@ class TelefonesController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function destroy($contato_id, $telefone_id)
+	public function destroy($contato_id, $endereco_id)
 	{
 		if (!($contato=Contato::find($contato_id)))
 			return Response::json([
 				"metadata" =>
 				[
 					"found"		=> 0,
-					"total"		=> $contato->telefones()->count(),
+					"total"		=> $contato->enderecos()->count(),
 					"offset" 	=> 0,
 					"errors"	=> 1,
 					"messages"	=> [
@@ -281,18 +296,18 @@ class TelefonesController extends BaseController {
 				]
 			], 404);
 
-		$telefone = $contato->telefones()->find($telefone_id);
+		$endereco = $contato->enderecos()->find($endereco_id);
 
 
-		if ($telefone)
+		if ($endereco)
 			return Response::json([
-				"data" => $telefone->toArray(),
+				"data" => $endereco->toArray(),
 				"metadata" =>
 				[
-					"modified"	=> $x = $telefone->delete(),
+					"modified"	=> $x = $endereco->delete(),
 					"found"		=> $x,
 					"offset"	=> 0,
-					"total"		=> $contato->telefones()->count(),
+					"total"		=> $contato->enderecos()->count(),
 					"errors"	=> 0,
 				]
 			], 200);
@@ -303,9 +318,9 @@ class TelefonesController extends BaseController {
 					"errors" 	=> 1,
 					"found"	 	=> 0,
 					"offset" 	=> 0,
-					"total"  	=> $contato->telefones()->count(),
+					"total"  	=> $contato->enderecos()->count(),
 					"messages" 	=> [
-						"telefone" => "Telefone não foi encontrado"
+						"endereco" => "Endereco não foi encontrado"
 					],
 					"modified" 	=> 0, 
 				]

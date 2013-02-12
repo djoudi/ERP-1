@@ -5,7 +5,6 @@ class TabelaEmailsSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('contatos_emails')->truncate();
         DB::table('emails')->truncate();
 
 

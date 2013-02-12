@@ -5,7 +5,6 @@ class TabelaTelefonesSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('contatos_telefones')->truncate();
         DB::table('telefones')->truncate();
 
         Contato::find(1)->telefones()->save(

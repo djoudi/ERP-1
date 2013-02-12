@@ -16,6 +16,7 @@ class CriarTabelaSessoes extends Migration {
 			$table->increments('id');
 			$table->string('hash', 32);
 			$table->integer('usuario')->unsigned()->foreign()->references('id')->on('usuarios');
+			$table->timestamps();
 		});
 	}
 

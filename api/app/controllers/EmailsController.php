@@ -14,18 +14,27 @@ class EmailsController extends BaseController {
 		if ($contato_id)
 		{
 			$total = Contato::find($contato_id)->emails->count();
-			$response["data"] = Contato::find($contato_id)->emails()->skip($offset=Input::get('offset', 0))->take($limit=Input::get('limit', 10))->get()->toArray();
+			$response["data"] = Contato::find($contato_id)
+				->emails()
+				->skip($offset=Input::get('offset', 0))
+				->take($limit=Input::get('limit', 10))
+				->get()
+				->toArray();
 		}
 		else
 		{
 			$total = Email::count();
-			$response["data"] = Email::skip($offset=Input::get('offset', 0))->take($limit=Input::get('limit', 10))->get()->toArray();
+			$response["data"] = Email::skip($offset=Input::get('offset', 0))
+				->take($limit=Input::get('limit', 10))
+				->get()
+				->toArray();
 		}
 		$response['metadata'] = [
-			"total" => $total,
+			"errors"=> 0,
 			"found" => $found = count($response["data"]),
+			"modified" => 0,
 			"offset"=> intval($offset),
-			"errors"=> 0
+			"total" => $total,
 		];
 
 		return Response::json($response,200);
@@ -39,9 +48,30 @@ class EmailsController extends BaseController {
 	public function store($contato_id)
 	{
 		if (!($contato = Contato::find($contato_id)) || func_num_args() != 1)
-			return Response::json(404);		
+			return Response::json([
+				"metadata"=> [
+					"errors"	=> 1,
+					"found"		=> 0,
+					"messages"	=> [
+						"contato" => "Contato não foi encontrado"
+					],
+					"modified"	=> 0,
+					"offset"	=> 0,
+					"total"		=> $contato->emails()->count(),
+				]
+			],404);
 		
-		$validator = Validator::make(Input::all(),
+		$defaults = [
+			"identificacao" => "email",
+			"numero" => "email@email.com",
+		];
+
+		if (!($inputs = Input::all()))
+			$inputs = objectToArray(Input::json());
+
+		$inputs = array_intersect_key($inputs, $defaults);
+
+		$validator = Validator::make($inputs,
 		    [
 			    'identificacao' => 'required',
 		    	'email' => ['required', 'email']
@@ -50,39 +80,45 @@ class EmailsController extends BaseController {
 		if ($validator->fails())
 		{
 			return Response::json([ "metadata" => [
-				"errors"   => count($messages = $validator->messages()),
-				"messages" => $validator->messages()->toArray()
+				"errors"	=> count($messages = $validator->messages()->toArray()),
+				"found"		=> 0,
+				"messages"	=> $messages,
+				"modified"	=> 0,
+				"offset"	=> 0,
+				"total"		=> $contato->emails()->count(),
 			]],400);
 		}
 
-		try
-		{
-			$contato->emails()->save(
-				$email = new Email( Input::only('identificacao', 'email') )
-			);	
-		} catch(Exception $Exception )
-		{
-			$toAttach = Email::where('email',Input::get('email'))->first();
-			$attachTo = $toAttach->contatos()->where("contato_id" ,$contato_id)->getResults();
+		$email = $contato->emails()->where('email',$inputs['email']);
+		if ($email->count())
+			return Response::json([
+				"data" => $email->first()->toArray(),
+				"metadata"=> [
+					"errors"	=> 1,
+					"found"		=> 1,
+					"messages"	=> [
+						"email" => "Email já pertencente ao contato"
+					],
+					"modified"	=> 0,
+					"offset"	=> 0,
+					"total"		=> $contato->emails()->count(),
+				]
+			],303);
 
-			if ($attachTo->count())
-				return Response::json([
-					"metadata"=> [
-						"errors"=>1,
-						"messages" => [ "email" => "Contato já possui este e-mail" ] 
-					]
-				]);
-
-			$contato->emails()->attach($toAttach->id);			
-		}
+		$contato->emails()->save(
+			$email = new Email( $inputs )
+		);
 
 		return Response::json([
-			"data" => $email,
+			"data" => $email->toArray(),
 			"metadata"=> [
-				"errors"=>0,
-				"total" => Contato::find($contato_id)->emails()->count()
+				"errors"	=> 0,
+				"found"		=> 1,
+				"modified"	=> 1,
+				"offset"	=> 0,
+				"total"		=> $contato->emails()->count(),
 			]
-		]);
+		],200);
 
 	}
 
@@ -97,35 +133,130 @@ class EmailsController extends BaseController {
 			return Response::json([
 				"metadata" =>
 				[
-					"message" => ["contato" => "Contato não foi encontrado"],
-					"errors" => 1
+					"errors" => 1,
+					"found"	 => 1,
+					"messages" => [
+						"contato" => "Contato não foi encontrado"
+					],
+					"modified"	=> 0, 
+					"offset" => 0,
+					"total"  => $contato->emails()->count(),
 				]
 			], 404);
 
-		$email = $contato->emails()->where('email_id',$email_id)->get();
-		$response = [
-			'data' => $email->toArray(),
-			'metadata' => [],
+		$email = $contato->emails()->find($email_id);
+
+		if ($email)
+			return Response::json([
+				'data' => $email->toArray(),
+				'metadata' => [
+					"errors" 	=> 0,
+					"found"	 	=> 1,
+					"offset" 	=> 0,
+					"total"  	=> $contato->emails()->count(),
+					'modified'	=> 1, 
+				]
+			], 200);
+		else
+			return Response::json([
+				'metadata' => [
+					"errors" 	=> 1,
+					"found"	 	=> 0,
+					"offset" 	=> 0,
+					"total"  	=> $contato->emails()->count(),
+					"messages" 	=> [
+						"email" => "Email não foi encontrado"
+					],
+					"modified" 	=> 0, 
+				]
+			], 404);
+	}
+
+
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @return Response
+	 */
+	public function update($contato_id, $email_id)
+	{
+		if (!($contato=Contato::find($contato_id)))
+			return Response::json([
+				"metadata" =>
+				[
+					"errors" => 1,
+					"found"	 => 1,
+					"messages" => [
+						"contato" => "Contato não foi encontrado"
+					],
+					"modified"	=> 0, 
+					"offset" => 0,
+					"total"  => $contato->emails()->count(),
+				]
+			], 404);
+
+
+		if (!($email = $contato->emails()->find($email_id)))
+			return Response::json([
+				'metadata' => [
+					"errors" 	=> 1,
+					"found"	 	=> 0,
+					"offset" 	=> 0,
+					"total"  	=> $contato->emails()->count(),
+					"messages" 	=> [
+						"email" => "Email não foi encontrado"
+					],
+					"modified" 	=> 1, 
+				]
+			], 404 );
+
+
+		$defaults = [
+			"identificacao" => "email",
+			"numero" => "email@email.com",
 		];
 
-		if ($email->count())
-		{
-			$response['metadata'] = [
-				"errors" => 0
-			];
-			$code = 200;
-		}
-		else
-		{
-			$response['metadata'] = [
-				"errors" => 1,
-				"message" => ["email" => "Email não foi encontrado"],
+		if (!($inputs = Input::all()))
+			$inputs = objectToArray(Input::json());
 
-			];
-			$code = 404;
+		$inputs = array_intersect_key($inputs, $defaults);
+
+		$validator = Validator::make($inputs,
+		    [
+			    'identificacao' => 'required',
+		    	'email' => ['required', 'email']
+		    ]);
+
+		if ($validator->fails())
+		{
+			return Response::json([ "metadata" => [
+				"errors"	=> count($messages = $validator->messages()),
+				"found"		=> 0,
+				"messages"	=> $validator->messages()->toArray(),
+				"modified"	=> 0,
+				"offset"	=> 0,
+				"total"		=> $contato->emails()->count(),
+			]],400);
 		}
 
-		return Response::json($response, $code );
+		
+		foreach($inputs as $attribute=>$value)
+			$email->{$attribute} = $value;
+
+		$email->save();
+
+		return Response::json([
+			'data' => $email->toArray(),
+			'metadata' => [
+				"errors" 	=> 0,
+				"found"	 	=> 1,
+				"offset" 	=> 0,
+				"total"  	=> $contato->emails()->count(),
+				'modified'	=> 1 
+			]
+		], 200 );
+	
 	}
 
 	/**
@@ -139,56 +270,45 @@ class EmailsController extends BaseController {
 			return Response::json([
 				"metadata" =>
 				[
-					"message" => ["contato" => "Contato não foi encontrado"],
-					"errors" => 1
+					"found"		=> 0,
+					"total"		=> $contato->emails()->count(),
+					"offset" 	=> 0,
+					"errors"	=> 1,
+					"messages"	=> [
+						"contato" => "Contato não foi encontrado"
+					],
+					"modified" 	=> 0, 
 				]
 			], 404);
 
-		$response = [
-			"metadata" =>
-			[
-				"modified" => $contato->emails()->detach($email_id),
-				"errors" => 0
-			]
-		];
-
-		$email = Email::find($email_id);
-		if (!$email->contatos()->count())
-			$email->delete();
-
-		return Response::json($response, 200);
-	}
+		$email = $contato->emails()->find($email_id);
 
 
-	public function contatos($email_id)
-	{
-		if (is_numeric($email_id))
-			$email = Email::find($email_id);
+		if ($email)
+			return Response::json([
+				"data" => $email->toArray(),
+				"metadata" =>
+				[
+					"modified"	=> $x = $email->delete(),
+					"found"		=> $x,
+					"offset"	=> 0,
+					"total"		=> $contato->emails()->count(),
+					"errors"	=> 0,
+				]
+			], 200);
+
 		else
-		{
-			$email = Email::where("email",$email);
-			if (!$email->count())
-			{
-				return Response::json([
-					'metadata' => [ 
-						"errors" => 1,
-						"message" => ["email" => "Email não foi encontrado"],
-					]
-				],404);
-			}
-			$email = $email->first();
-		}
-
-		$total = $email->contatos->count();
-		$response["data"] = $email->contatos()->skip($offset=Input::get('offset', 0))->take($limit=Input::get('limit', 10))->get()->toArray();		
-		$response['metadata'] = [
-			"total" => $total,
-			"found" => $found = count($response["data"]),
-			"offset"=> intval($offset),
-			"errors"=> 0
-		];
-
-		return Response::json($response,200);
-
+			return Response::json([
+				'metadata' => [
+					"errors" 	=> 1,
+					"found"	 	=> 0,
+					"offset" 	=> 0,
+					"total"  	=> $contato->emails()->count(),
+					"messages" 	=> [
+						"email" => "Email não foi encontrado"
+					],
+					"modified" 	=> 0, 
+				]
+			], 404 );
 	}
 }

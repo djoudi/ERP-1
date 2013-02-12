@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -15,7 +16,9 @@ class CriarTabelaEmails extends Migration {
 		{
 			$table->increments('id');
 			$table->string('identificacao');
-			$table->string('email', 320)->unique();
+			$table->integer('contato')->unsigned()->foreign()->references('id')->on('contatos');
+			$table->string('email', 320);
+			$table->timestamps();
 		});
 	}
 

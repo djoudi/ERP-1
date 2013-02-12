@@ -18,6 +18,7 @@ class CriarTabelaUsuarios extends Migration {
 			$table->integer('email')->unsigned()->foreign()->references('id')->on('emails')->unique();
 	        $table->string('senha');
 	        $table->string('privilegios');
+	        $table->timestamps();
 		});
 	}
 

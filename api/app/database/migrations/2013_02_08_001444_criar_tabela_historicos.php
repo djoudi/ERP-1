@@ -18,6 +18,7 @@ class CriarTabelaHistoricos extends Migration {
 			$table->integer('cliente')->unsigned()->foreign()->references('id')->on('clientes');;
 			$table->timestamp('registrado_em');
 			$table->text('descricao')->fulltext();
+			$table->timestamps();
 		});
 	}
 

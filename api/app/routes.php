@@ -10,14 +10,10 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
+
 // Acesso direto Contatos
 Route::resource('contatos', 'ContatosController');
-
-// Acesso direto aos Recursos
-Route::get('/emails'    , 'EmailsController@index');
-Route::get('/emails/{id}/contatos', 'EmailsController@contatos')->where("id","[0-9]+");
-
-Route::resource('/telefones' , 'TelefonesController');
 
 // Acesso através dos Contatos
 Route::group(array('prefix' => 'contatos/{id}'), function()
