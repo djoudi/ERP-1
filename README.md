@@ -19,7 +19,7 @@ To achieve that goal, the set of technologies will be employed:
 - Twitter Bootstrap (<http://twitter.github.com/bootstrap/>)
 
 ### Server-side
-- PHP Slim Framework (<http://www.slimframework.com/>)
+- PHP Laravel4 Framework (<http://four.laravel.com/>)
 - MySQL
 
 ## Architecture 
