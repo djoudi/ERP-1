@@ -4,8 +4,9 @@ define [
 	'backbone'
 	'sprintf'
 	'views/appview'
+	'subroute'
 ], ($, _, Backbone, sprintf, AppView)->
-
+	
 	class CoreController extends Backbone.Router
 		routes:		{":controller(/*path)": 'loadModuleRouter'}
 		subRouters: { }
@@ -14,8 +15,7 @@ define [
 			@setResponseCatchers()
 			Backbone.history.start()
 
-			@view = new AppView()
-			@view.render().$el.appendTo("body")
+			AppView.render().$el.appendTo("body")
 
 		loadModuleRouter: (controller) ->
 
@@ -23,16 +23,15 @@ define [
 			controller = controller.toLowerCase()
 			controllerName = controller.substr(0,1).toUpperCase()+ controller.substr(1).toLowerCase()
 
-			# if it have been already added to Core, requires it
+			# if it hasnt been already added to Core, requires it
 			if !@subRouters[controller]? && controller != "core"
-
 				require ["controllers/#{controller}"], (Controller) =>
 					# prints log 
 					console.log sprintf  "Starting controller %1$s ...", controllerName
 
 					if !@subRouters[controller]? && controller != "core"
 						# Instances the required Controller
-						@subRouters[controller] = new Controller(controller)
+						@subRouters[controller] = new Controller controller
 
 
 		handleError: (error)=>
@@ -42,3 +41,5 @@ define [
 					401: =>    
 						@navigate "login",
 							trigger: true
+
+

@@ -4,7 +4,7 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(['jquery', 'underscore', 'backbone', 'sprintf', 'views/appview'], function($, _, Backbone, sprintf, AppView) {
+  define(['jquery', 'underscore', 'backbone', 'sprintf', 'views/appview', 'subroute'], function($, _, Backbone, sprintf, AppView) {
     var CoreController;
     return CoreController = (function(_super) {
 
@@ -23,10 +23,9 @@
 
       CoreController.prototype.initialize = function() {
         CoreController.__super__.initialize.call(this);
-        this.setResponseCachers();
+        this.setResponseCatchers();
         Backbone.history.start();
-        this.view = new AppView();
-        return this.view.render().$el.appendTo("body");
+        return AppView.render().$el.appendTo("body");
       };
 
       CoreController.prototype.loadModuleRouter = function(controller) {
@@ -46,7 +45,7 @@
 
       CoreController.prototype.handleError = function(error) {};
 
-      CoreController.prototype.setResponseCachers = function() {
+      CoreController.prototype.setResponseCatchers = function() {
         var _this = this;
         return $.ajaxSetup({
           statusCode: {

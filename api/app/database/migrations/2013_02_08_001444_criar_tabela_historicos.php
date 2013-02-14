@@ -14,9 +14,8 @@ class CriarTabelaHistoricos extends Migration {
 		Schema::create('historicos', function($table)
 		{
 			$table->increments('id');
-			$table->integer('posVenda')->unsigned()->foreign()->references('id')->on('contatos');
-			$table->integer('cliente')->unsigned()->foreign()->references('id')->on('clientes');;
-			$table->timestamp('registrado_em');
+			$table->integer('autor')->unsigned()->foreign()->references('id')->on('contatos');
+			$table->integer('cliente')->unsigned()->foreign()->references('id')->on('contratos');
 			$table->text('descricao')->fulltext();
 			$table->timestamps();
 		});

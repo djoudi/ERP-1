@@ -1,8 +1,7 @@
 define [
 	'jquery'		
 	'underscore'		
-	'backbone'
-], ($,_,Backbone)->
-
+	'backbone',
+	'models/contato'
+], ($,_,Backbone, Contato)->
 	class Cliente extends Backbone.Model
-		idAttribute: "cliente_id"

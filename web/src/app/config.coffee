@@ -18,13 +18,17 @@ requirejs.config
 			exports: 'Bootstrap'
 
 	paths:
-		jquery: 	'../assets/js/libs/jquery'
-		backbone: 	'../assets/js/libs/backbone'
-		bootstrap: 	'../assets/js/libs/bootstrap'
-		underscore: '../assets/js/libs/underscore'
-		subroute: 	'../assets/js/libs/backbone.subroute'
-		sprintf: 	'../assets/js/libs/sprintf'
-		text:		'../assets/js/libs/text'
+		jquery: 			'../assets/js/libs/jquery'
+		backbone: 			'../assets/js/libs/backbone'
+		backgrid:			'../assets/js/libs/backgrid.min'
+		pageable:			'../assets/js/libs/backbone-pageable.min'
+		associations:		'../assets/js/libs/backbone.associations.min'
+		relational:			'../assets/js/libs/backbone.relational.min'
+		bootstrap: 			'../assets/js/libs/bootstrap'
+		underscore: 		'../assets/js/libs/underscore'
+		subroute: 			'../assets/js/libs/backbone.subroute'
+		sprintf: 			'../assets/js/libs/sprintf'
+		text:				'../assets/js/libs/text'
 
 
 require [

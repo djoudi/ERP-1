@@ -37,7 +37,7 @@ class EmailsController extends BaseController {
 			"total" => $total,
 		];
 
-		return Response::json($response,200);
+		return (($response = Response::json($response,200)) && Input::has('callback')?$response->setCallback(Input::get('callback')):$response);
 	}
 
 	/**
@@ -48,7 +48,7 @@ class EmailsController extends BaseController {
 	public function store($contato_id)
 	{
 		if (!($contato = Contato::find($contato_id)) || func_num_args() != 1)
-			return Response::json([
+			return (($response = Response::json([
 				"metadata"=> [
 					"errors"	=> 1,
 					"found"		=> 0,
@@ -57,19 +57,24 @@ class EmailsController extends BaseController {
 					],
 					"modified"	=> 0,
 					"offset"	=> 0,
-					"total"		=> $contato->emails()->count(),
+					"total"		=> Email::count(),
 				]
-			],404);
+			],404)) && Input::has('callback')?$response->setCallback(Input::get('callback')):$response);
 		
-		$defaults = [
-			"identificacao" => "email",
-			"numero" => "email@email.com",
-		];
+		
 
 		if (!($inputs = Input::all()))
-			$inputs = objectToArray(Input::json());
+			if (!($inputs = objectToArray(Input::json())))
+				return (($response = Response::json([
+					"metadata"=> [
+						"errors"	=> 1,
+						"found"		=> 0,
+						"modified"	=> 0,
+						"offset"	=> 0,
+					]
+				],400)) && isset($inputs['callback'])?$response->setCallback($inputs['callback']):$response);
 
-		$inputs = array_intersect_key($inputs, $defaults);
+		
 
 		$validator = Validator::make($inputs,
 		    [
@@ -79,19 +84,19 @@ class EmailsController extends BaseController {
 
 		if ($validator->fails())
 		{
-			return Response::json([ "metadata" => [
+			return (($response = Response::json([ "metadata" => [
 				"errors"	=> count($messages = $validator->messages()->toArray()),
 				"found"		=> 0,
 				"messages"	=> $messages,
 				"modified"	=> 0,
 				"offset"	=> 0,
 				"total"		=> $contato->emails()->count(),
-			]],400);
+			]],400)) && isset($inputs['callback'])?$response->setCallback($inputs['callback']):$response);
 		}
 
 		$email = $contato->emails()->where('email',$inputs['email']);
 		if ($email->count())
-			return Response::json([
+			return (($response = Response::json([
 				"data" => $email->first()->toArray(),
 				"metadata"=> [
 					"errors"	=> 1,
@@ -103,13 +108,13 @@ class EmailsController extends BaseController {
 					"offset"	=> 0,
 					"total"		=> $contato->emails()->count(),
 				]
-			],303);
+			],303)) && Input::has('callback')?$response->setCallback(Input::get('callback')):$response);
 
 		$contato->emails()->save(
 			$email = new Email( $inputs )
 		);
 
-		return Response::json([
+		return (($response = Response::json([
 			"data" => $email->toArray(),
 			"metadata"=> [
 				"errors"	=> 0,
@@ -118,7 +123,7 @@ class EmailsController extends BaseController {
 				"offset"	=> 0,
 				"total"		=> $contato->emails()->count(),
 			]
-		],200);
+		],200)) && Input::has('callback')?$response->setCallback(Input::get('callback')):$response);
 
 	}
 
@@ -130,7 +135,7 @@ class EmailsController extends BaseController {
 	public function show($contato_id, $email_id)
 	{
 		if (!($contato=Contato::find($contato_id)))
-			return Response::json([
+			return (($response = Response::json([
 				"metadata" =>
 				[
 					"errors" => 1,
@@ -140,14 +145,14 @@ class EmailsController extends BaseController {
 					],
 					"modified"	=> 0, 
 					"offset" => 0,
-					"total"  => $contato->emails()->count(),
+					"total"  => Email::count(),
 				]
-			], 404);
+			], 404)) && Input::has('callback')?$response->setCallback(Input::get('callback')):$response);
 
 		$email = $contato->emails()->find($email_id);
 
 		if ($email)
-			return Response::json([
+			return (($response = Response::json([
 				'data' => $email->toArray(),
 				'metadata' => [
 					"errors" 	=> 0,
@@ -156,9 +161,9 @@ class EmailsController extends BaseController {
 					"total"  	=> $contato->emails()->count(),
 					'modified'	=> 1, 
 				]
-			], 200);
+			], 200)) && Input::has('callback')?$response->setCallback(Input::get('callback')):$response);
 		else
-			return Response::json([
+			return (($response = Response::json([
 				'metadata' => [
 					"errors" 	=> 1,
 					"found"	 	=> 0,
@@ -169,7 +174,7 @@ class EmailsController extends BaseController {
 					],
 					"modified" 	=> 0, 
 				]
-			], 404);
+			], 404)) && Input::has('callback')?$response->setCallback(Input::get('callback')):$response);
 	}
 
 
@@ -182,7 +187,7 @@ class EmailsController extends BaseController {
 	public function update($contato_id, $email_id)
 	{
 		if (!($contato=Contato::find($contato_id)))
-			return Response::json([
+			return (($response = Response::json([
 				"metadata" =>
 				[
 					"errors" => 1,
@@ -192,13 +197,13 @@ class EmailsController extends BaseController {
 					],
 					"modified"	=> 0, 
 					"offset" => 0,
-					"total"  => $contato->emails()->count(),
+					"total"  => Email::count(),
 				]
-			], 404);
+			], 404)) && Input::has('callback')?$response->setCallback(Input::get('callback')):$response);
 
 
 		if (!($email = $contato->emails()->find($email_id)))
-			return Response::json([
+			return (($response = Response::json([
 				'metadata' => [
 					"errors" 	=> 1,
 					"found"	 	=> 0,
@@ -209,18 +214,23 @@ class EmailsController extends BaseController {
 					],
 					"modified" 	=> 1, 
 				]
-			], 404 );
+			], 404 )) && Input::has('callback')?$response->setCallback(Input::get('callback')):$response);
 
 
-		$defaults = [
-			"identificacao" => "email",
-			"numero" => "email@email.com",
-		];
+		
 
 		if (!($inputs = Input::all()))
-			$inputs = objectToArray(Input::json());
+			if (!($inputs = objectToArray(Input::json())))
+				return (($response = Response::json([
+					"metadata"=> [
+						"errors"	=> 1,
+						"found"		=> 0,
+						"modified"	=> 0,
+						"offset"	=> 0,
+					]
+				],400)) && isset($inputs['callback'])?$response->setCallback($inputs['callback']):$response);
 
-		$inputs = array_intersect_key($inputs, $defaults);
+		
 
 		$validator = Validator::make($inputs,
 		    [
@@ -230,23 +240,21 @@ class EmailsController extends BaseController {
 
 		if ($validator->fails())
 		{
-			return Response::json([ "metadata" => [
+			return (($response = Response::json([ "metadata" => [
 				"errors"	=> count($messages = $validator->messages()),
 				"found"		=> 0,
 				"messages"	=> $validator->messages()->toArray(),
 				"modified"	=> 0,
 				"offset"	=> 0,
 				"total"		=> $contato->emails()->count(),
-			]],400);
+			]],400)) && isset($inputs['callback'])?$response->setCallback($inputs['callback']):$response);
 		}
 
 		
-		foreach($inputs as $attribute=>$value)
-			$email->{$attribute} = $value;
-
+		$email->fill($inputs);
 		$email->save();
 
-		return Response::json([
+		return (($response = Response::json([
 			'data' => $email->toArray(),
 			'metadata' => [
 				"errors" 	=> 0,
@@ -255,7 +263,7 @@ class EmailsController extends BaseController {
 				"total"  	=> $contato->emails()->count(),
 				'modified'	=> 1 
 			]
-		], 200 );
+		], 200 )) && Input::has('callback')?$response->setCallback(Input::get('callback')):$response);
 	
 	}
 
@@ -267,11 +275,11 @@ class EmailsController extends BaseController {
 	public function destroy($contato_id, $email_id)
 	{
 		if (!($contato=Contato::find($contato_id)))
-			return Response::json([
+			return (($response = Response::json([
 				"metadata" =>
 				[
 					"found"		=> 0,
-					"total"		=> $contato->emails()->count(),
+					"total"		=> Email::count(),
 					"offset" 	=> 0,
 					"errors"	=> 1,
 					"messages"	=> [
@@ -279,13 +287,13 @@ class EmailsController extends BaseController {
 					],
 					"modified" 	=> 0, 
 				]
-			], 404);
+			], 404)) && Input::has('callback')?$response->setCallback(Input::get('callback')):$response);
 
 		$email = $contato->emails()->find($email_id);
 
 
 		if ($email)
-			return Response::json([
+			return (($response = Response::json([
 				"data" => $email->toArray(),
 				"metadata" =>
 				[
@@ -295,10 +303,10 @@ class EmailsController extends BaseController {
 					"total"		=> $contato->emails()->count(),
 					"errors"	=> 0,
 				]
-			], 200);
+			], 200)) && Input::has('callback')?$response->setCallback(Input::get('callback')):$response);
 
 		else
-			return Response::json([
+			return (($response = Response::json([
 				'metadata' => [
 					"errors" 	=> 1,
 					"found"	 	=> 0,
@@ -309,6 +317,6 @@ class EmailsController extends BaseController {
 					],
 					"modified" 	=> 0, 
 				]
-			], 404 );
+			], 404 )) && Input::has('callback')?$response->setCallback(Input::get('callback')):$response);
 	}
 }

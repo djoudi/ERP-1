@@ -1,4 +1,5 @@
 define ()->
 	return {
-		API_URL: "http://www/ERP/api"
+		api:
+			url: "http://localhost:8888"
 	}

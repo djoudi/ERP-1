@@ -13,7 +13,19 @@
 
 App::before(function($request)
 {
-	//
+	header('Access-Control-Allow-Origin: *');
+	header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
+	header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
+    header('Access-Control-Allow-Headers: X-PINGARUNER');
+    header('Access-Control-Max-Age: 1728000');
+	header('Content-Type: application/json');
+
+	if($_SERVER['REQUEST_METHOD'] == "OPTIONS")
+    {
+	    header("Content-Length: 0");
+    	exit(0);
+    }
+
 });
 
 
@@ -41,11 +53,11 @@ App::after(function($request, $response)
 //         'password' => Request::getPassword(),
 //     ];
 //     if ( ! Auth::attempt($creds) ) {
-//         return Response::json([
+//         return (($response = Response::json([
 //             'error' => true,
 //             'message' => 'Unauthorized Request'],
 //             401
-//         );
+//         )) && Input::has('callback')?$response->setCallback(Input::get('callback')):$response);
 //     }
 // });
 

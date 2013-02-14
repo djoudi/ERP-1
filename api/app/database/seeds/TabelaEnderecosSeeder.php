@@ -1,15 +1,15 @@
 <?php
 
 
-class TabelaEmailsSeeder extends Seeder {
+class TabelaEnderecosSeeder extends Seeder {
 
     public function run()
     {
         DB::table('enderecos')->truncate();
 
 
-        Contato::find(2)->emails()->save(
-            new Email([
+        Contato::find(2)->enderecos()->save(
+            new Endereco([
                 'identificacao' => "casa",
                 'numero' => "164",
                 'logradouro' => "Rua C",
@@ -20,7 +20,7 @@ class TabelaEmailsSeeder extends Seeder {
                 'cep' => "74633260",
             ]));
 
-
+    }
 }
 
 

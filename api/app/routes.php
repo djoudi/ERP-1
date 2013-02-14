@@ -14,6 +14,8 @@
 
 // Acesso direto Contatos
 Route::resource('contatos', 'ContatosController');
+Route::resource('contratos', 'ContratosController');
+Route::resource('contratos/{contrato_id}/historicos', 'HistoricosController');
 
 // Acesso através dos Contatos
 Route::group(array('prefix' => 'contatos/{id}'), function()

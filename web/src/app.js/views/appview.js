@@ -5,7 +5,7 @@
 
   define(['jquery', 'underscore', 'backbone', 'bootstrap', 'text!templates/skeleton.html'], function($, _, Backbone, Bootstrap, AppViewTemplate) {
     var AppView;
-    return AppView = (function(_super) {
+    AppView = (function(_super) {
 
       __extends(AppView, _super);
 
@@ -15,14 +15,41 @@
 
       AppView.prototype.template = _.template(AppViewTemplate);
 
+      AppView.prototype.title = "Carregando...";
+
+      AppView.prototype.view = null;
+
+      AppView.prototype.rendered = false;
+
+      AppView.prototype.setView = function(view) {
+        this.view = view;
+        return this.render();
+      };
+
+      AppView.prototype.setTitle = function(title) {
+        this.title = title;
+        return this.render();
+      };
+
       AppView.prototype.render = function() {
-        this.$el.html(this.template());
+        if (!this.rendered) {
+          this.$el.html(this.template({
+            title: this.title
+          }));
+          this.rendered = true;
+        }
+        if (this.view != null) {
+          this.$("#view").html(this.view.render().$el);
+        }
+        this.$(".main_container > header > .heading").text(this.title);
+        document.title = "" + this.title + " - Top Claro";
         return this;
       };
 
       return AppView;
 
     })(Backbone.View);
+    return new AppView();
   });
 
 }).call(this);
