@@ -1,0 +1,12 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src",
+			"folder_exclude_patterns": ["app.js"]
+		},
+		{
+			"path": "/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app.js/templates"
+		}
+	]
+}

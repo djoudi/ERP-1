@@ -447,7 +447,7 @@
 			"file": "api/index.php",
 			"settings":
 			{
-				"buffer_size": 8139,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -455,7 +455,7 @@
 			"file": "web/src/app/controllers/clientes.coffee",
 			"settings":
 			{
-				"buffer_size": 367,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -463,15 +463,18 @@
 			"file": "web/src/app/models/cliente.coffee",
 			"settings":
 			{
-				"buffer_size": 135,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "",
 			"file": "web/src/app/models/clientes.coffee",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 315,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		}
@@ -1409,15 +1412,15 @@
 					"file": "api/index.php",
 					"settings":
 					{
-						"buffer_size": 8139,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6827,
-								6827
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1528,15 +1531,15 @@
 					"file": "web/src/app/controllers/clientes.coffee",
 					"settings":
 					{
-						"buffer_size": 367,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								324,
-								324
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1646,15 +1649,15 @@
 					"file": "web/src/app/models/cliente.coffee",
 					"settings":
 					{
-						"buffer_size": 135,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								135,
-								135
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1763,15 +1766,15 @@
 					"file": "web/src/app/models/clientes.coffee",
 					"settings":
 					{
-						"buffer_size": 315,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								315,
-								315
+								0,
+								0
 							]
 						],
 						"settings":

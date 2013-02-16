@@ -1,7 +1,11 @@
+@charset 'UTF-8';
+
 @import "bootstrap.less";
 @import "theme.less";
 @import "font-awesome.min.less";
 @import "alertify.less";
+@import "backgrid.min.less";
+@import "backbone-forms-bootstrap.less";
 
 
 [class^="icon-"],
@@ -11,8 +15,6 @@
   font-style: normal;
   text-decoration: inherit;
   -webkit-font-smoothing: antialiased;
-  
-  /* sprites.less reset */
   display: inline;
   width: auto;
   height: auto;
@@ -35,5 +37,20 @@
 }
 
 .navbar.navbar-fixed-top .navbar-inner {
-  box-shadow: 0 0 13px rgba(0, 0, 0, 0.7)
+  box-shadow: 0 0 13px rgba(0, 0, 0, 0.7);
 }
+
+.tel-inline{
+  display: block;
+}
+
+.summarize {
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.nowrap{
+  white-space: nowrap;
+}
+
+

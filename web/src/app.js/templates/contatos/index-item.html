@@ -1,0 +1,19 @@
+<td>
+	<input type="checkbox" name="" value="" placeholder="">
+</td>
+<td class="nowrap">
+	<%=contato.nome%>
+</td>
+<td class="nowrap">
+	<% for (i in telefones) { %>
+	<a href="tel:<%=telefones[i].numero%>" class="tel-inline" data-toggle="tooltip" data-placement="top" data-original-title="<%-telefones[i].identificacao%>"><%=telefones[i].numero%></a>
+	<% } %>
+</td>
+<td class="summarize">
+	<% for (i in emails) { %>
+	<a href="mailto:<%=emails[i].email %>"><%=emails[i].email %></a>
+	<% } %>
+	</td>
+<td class="hidden-phone">
+
+</td>

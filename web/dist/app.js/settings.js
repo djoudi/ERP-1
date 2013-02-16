@@ -1,0 +1,1 @@
+(function(){define([],function(){return{api:{url:"http://localhost:8888"}}})}).call(this);

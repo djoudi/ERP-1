@@ -12,31 +12,46 @@
       underscore: {
         exports: '_'
       },
+      i18n: {
+        exports: '__'
+      },
       backbone: {
-        deps: ['underscore', 'jquery'],
+        deps: ['jquery', 'underscore'],
         exports: 'Backbone'
       },
       bootstrap: {
         deps: ['jquery'],
         exports: 'Bootstrap'
+      },
+      backgrid: {
+        deps: ['backbone'],
+        exports: 'Backgrid'
+      },
+      "backbone-forms": {
+        deps: ['backbone']
+      },
+      "backbone-forms-bootstrap": {
+        deps: ['backbone-forms']
       }
     },
     paths: {
       jquery: '../assets/js/libs/jquery',
       backbone: '../assets/js/libs/backbone',
-      backgrid: '../assets/js/libs/backgrid.min',
-      pageable: '../assets/js/libs/backbone-pageable.min',
-      associations: '../assets/js/libs/backbone.associations.min',
-      relational: '../assets/js/libs/backbone.relational.min',
       bootstrap: '../assets/js/libs/bootstrap',
       underscore: '../assets/js/libs/underscore',
-      subroute: '../assets/js/libs/backbone.subroute',
+      text: '../assets/js/libs/text',
+      i18n: '../assets/js/libs/i18n',
       sprintf: '../assets/js/libs/sprintf',
-      text: '../assets/js/libs/text'
+      subroute: '../assets/js/libs/backbone.subroute',
+      pageable: '../assets/js/libs/backbone-pageable.min',
+      'backbone-forms': '../assets/js/libs/backbone-forms.min',
+      'backbone-forms-bootstrap': '../assets/js/libs/backbone-forms-bootstrap',
+      'backbone-forms-list': '../assets/js/libs/backbone-forms-list.min',
+      'backbone-forms-inline-nestedmodels': '../assets/js/libs/inlinenestedmodels'
     }
   });
 
-  require(['controllers/core', 'subroute', 'text'], function(CoreController) {
+  require(['routers/core', 'subroute', 'text', 'bootstrap', 'i18n'], function(CoreController) {
     return new CoreController();
   });
 

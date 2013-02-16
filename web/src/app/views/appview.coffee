@@ -29,7 +29,6 @@ define [
 			@$(".main_container > header > .heading").text(@title)
 
 			document.title = "#{@title} - Top Claro"
-
 			@
 
 	new AppView()

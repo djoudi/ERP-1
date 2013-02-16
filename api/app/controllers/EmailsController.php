@@ -16,16 +16,16 @@ class EmailsController extends BaseController {
 			$total = Contato::find($contato_id)->emails->count();
 			$response["data"] = Contato::find($contato_id)
 				->emails()
-				->skip($offset=Input::get('offset', 0))
-				->take($limit=Input::get('limit', 10))
+				->skip($offset=(Input::get('page', 1)-1)*Input::get('per_page', 10))
+				->take($limit=Input::get('per_page', 10))
 				->get()
 				->toArray();
 		}
 		else
 		{
 			$total = Email::count();
-			$response["data"] = Email::skip($offset=Input::get('offset', 0))
-				->take($limit=Input::get('limit', 10))
+			$response["data"] = Email::skip($offset=(Input::get('page', 1)-1)*Input::get('per_page', 10))
+				->take($limit=Input::get('per_page', 10))
 				->get()
 				->toArray();
 		}

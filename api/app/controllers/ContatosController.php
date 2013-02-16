@@ -16,8 +16,8 @@ class ContatosController extends BaseController {
 
 		$response["data"] = Contato::with("telefones", "emails", "enderecos")
 			->orderBy($order=Input::get('orderBy', "nome"),$limit=Input::get('direction', "asc"))
-			->skip($offset=Input::get('offset', 0))
-			->take($limit=Input::get('limit', 10))
+			->skip($offset=(Input::get('page', 1)-1)*Input::get('per_page', 10))
+			->take($limit=Input::get('per_page', 10))
 			->get()
 			->toArray();
 

@@ -1,0 +1,2042 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"border",
+				"border-left"
+			],
+			[
+				"contat",
+				"contatoView"
+			],
+			[
+				"Enderco",
+				"Enderecos"
+			],
+			[
+				"getclass",
+				"get_class_methods"
+			],
+			[
+				"get_class",
+				"get_class_methods"
+			],
+			[
+				"atta",
+				"attachTo"
+			],
+			[
+				"contato",
+				"contato_id"
+			],
+			[
+				"getClas",
+				"get_class_methods"
+			],
+			[
+				"func",
+				"func_num_args"
+			],
+			[
+				"get_clas",
+				"get_class_methods"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"gt_clas",
+				"get_class_methods"
+			],
+			[
+				"funcg",
+				"func_get_args"
+			],
+			[
+				"matc",
+				"matches"
+			],
+			[
+				"order",
+				"orderby"
+			],
+			[
+				"App",
+				"AppView"
+			],
+			[
+				"ses",
+				"sessão"
+			],
+			[
+				"base",
+				"base64_encode"
+			],
+			[
+				"sessao",
+				"sessao_id"
+			],
+			[
+				"fun",
+				"fun	function …"
+			],
+			[
+				"Ap",
+				"AppRouter"
+			],
+			[
+				"Back",
+				"Backbone"
+			],
+			[
+				"even",
+				"eventObject"
+			],
+			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"mar",
+				"margin:   (property)"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"colu",
+				"column_breaker"
+			],
+			[
+				"column",
+				"columns_groups"
+			],
+			[
+				"the",
+				"the_content"
+			],
+			[
+				"wid",
+				"widget_id"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"borde",
+				"border-bottom"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"bor",
+				"border-top"
+			],
+			[
+				"bord",
+				"border"
+			],
+			[
+				"attc",
+				"attach"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"add",
+				"addslashes"
+			],
+			[
+				"ad",
+				"address	<address>"
+			],
+			[
+				"addre",
+				"addressLocality"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"arhi",
+				"archive"
+			],
+			[
+				"ca",
+				"categories_list"
+			],
+			[
+				"shor",
+				"shortcodes"
+			],
+			[
+				"sho",
+				"shortcodes"
+			],
+			[
+				"hea",
+				"header  (element)"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"paddin",
+				"padding-top"
+			],
+			[
+				"a",
+				"a	<a>"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"ma",
+				"margin-top"
+			],
+			[
+				"back",
+				"background-attachment:   (property)"
+			],
+			[
+				"PHP_MAX",
+				"PHP_INT_MAX  (constant)"
+			],
+			[
+				"strto",
+				"strtotime"
+			],
+			[
+				"plug",
+				"plugins_url"
+			],
+			[
+				"funct",
+				"function"
+			],
+			[
+				"is_ar",
+				"is_archive"
+			],
+			[
+				"switc",
+				"switchOutputInterface"
+			],
+			[
+				"OUTPI",
+				"OUTPUT_CLI"
+			],
+			[
+				"SERVI",
+				"SERVICE_NAME"
+			],
+			[
+				"els",
+				"elapsed_time"
+			],
+			[
+				"func_get",
+				"func_get_args"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"preg_match",
+				"preg_match_all"
+			],
+			[
+				"cpf",
+				"cpfcnpj"
+			],
+			[
+				"preg_call",
+				"preg_replace_callback"
+			],
+			[
+				"cand",
+				"Candidatos"
+			],
+			[
+				"cnpj",
+				"cpfcnpj"
+			],
+			[
+				"error",
+				"error_reporting"
+			],
+			[
+				"ob_get",
+				"ob_get_contents"
+			],
+			[
+				"inc",
+				"include_once"
+			],
+			[
+				"main",
+				"main_menu"
+			],
+			[
+				"red_me",
+				"red_mediaplayer_shortcode"
+			],
+			[
+				"red_mediaplayer_pos",
+				"red_mediaplayer_restrict_manage_posts_format"
+			],
+			[
+				"functio",
+				"function_exists"
+			],
+			[
+				"end",
+				"endif"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"nex",
+				"nextArticle"
+			],
+			[
+				"last",
+				"last_selected"
+			],
+			[
+				"candi",
+				"candidatos"
+			],
+			[
+				"elet",
+				"eleitor_id"
+			],
+			[
+				"ele",
+				"eleitor_id"
+			],
+			[
+				"eleitor",
+				"eleitor_id"
+			],
+			[
+				"var_",
+				"var_export"
+			],
+			[
+				"iln",
+				"inline-block"
+			],
+			[
+				"erro",
+				"error_reporting"
+			],
+			[
+				"_SE",
+				"_SESSION"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"segurador",
+				"seguradoras"
+			],
+			[
+				"segura",
+				"seguradora"
+			],
+			[
+				"cor",
+				"corretoras"
+			],
+			[
+				"get_the",
+				"get_the_title"
+			],
+			[
+				"fits",
+				"first-child  (pseudo-class)"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"get_field",
+				"get_field_name  (function)"
+			],
+			[
+				"postfo",
+				"post_format"
+			],
+			[
+				"stand",
+				"standard"
+			],
+			[
+				"func_ge",
+				"func_get_args"
+			],
+			[
+				"script",
+				"scriptTag"
+			],
+			[
+				"pos",
+				"post_count  (variable)"
+			],
+			[
+				"fires",
+				"first-child  (pseudo-class)"
+			],
+			[
+				"red_galle",
+				"red_gallery_wall"
+			],
+			[
+				"extr",
+				"extract_shortcode"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"cort",
+				"cortina-meio"
+			],
+			[
+				"cortina",
+				"cortina-esquerda"
+			],
+			[
+				"ignore",
+				"ignored_length  (variable)"
+			],
+			[
+				"ing",
+				"ignored_length"
+			],
+			[
+				"he",
+				"height	@height"
+			],
+			[
+				"SERVE",
+				"_SERVER"
+			],
+			[
+				"SERV",
+				"SERVER_NAME  (variable)"
+			],
+			[
+				"is_audi",
+				"is_audio_file"
+			],
+			[
+				"RED_V",
+				"RED_VIDEO_WIDTH"
+			],
+			[
+				"min",
+				"minutes"
+			],
+			[
+				"Htt",
+				"http"
+			],
+			[
+				"edygar",
+				"edygareluiza"
+			],
+			[
+				"repe",
+				"repeat-x"
+			],
+			[
+				"boot",
+				"bootstrap"
+			],
+			[
+				"publi",
+				"publish_up"
+			],
+			[
+				"pub",
+				"publish_up"
+			],
+			[
+				"_",
+				"$_	POST['…']"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/JSLint/JSLint.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"dupl",
+				"File: Duplicate"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"dul",
+				"File: Duplicate"
+			],
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"du",
+				"File: Duplicate"
+			],
+			[
+				"move",
+				"File: Move"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"reidne",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"renam",
+				"File: Rename"
+			],
+			[
+				"rena",
+				"File: Rename"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"delte",
+				"File: Delete"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Align Tabular"
+			],
+			[
+				"sor",
+				"Sort Lines"
+			],
+			[
+				"sort",
+				"Sort Lines"
+			],
+			[
+				"s",
+				"Sort Lines"
+			],
+			[
+				"open",
+				"File: Open In Browser - Production Server"
+			],
+			[
+				"depe",
+				"Package Control: Disable Package"
+			],
+			[
+				"ali",
+				"Align Tabular"
+			],
+			[
+				"rn",
+				"File: Rename"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"convetab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"sql",
+				"FormatSQL: Format SQL statement"
+			],
+			[
+				"down",
+				"SFTP: Download File"
+			],
+			[
+				"convetb",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"reind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"convertab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"copp",
+				"File: Copy Path as URI"
+			],
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reve",
+				"File: Reveal"
+			],
+			[
+				"d",
+				"File: Duplicate"
+			],
+			[
+				"dup",
+				"File: Duplicate"
+			],
+			[
+				"less",
+				"Set Syntax: LESS"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"gitstat",
+				"Git: Status"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ruby",
+				"Set Syntax: Ruby"
+			],
+			[
+				"dupli",
+				"File: Duplicate"
+			],
+			[
+				"dupla",
+				"File: Duplicate"
+			],
+			[
+				"convetabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"to",
+				"View: Toggle Tabs"
+			],
+			[
+				"togtabs",
+				"View: Toggle Tabs"
+			],
+			[
+				"dlee",
+				"File: Delete"
+			],
+			[
+				"dee",
+				"Zen Coding: Evaluate math expression"
+			],
+			[
+				"map",
+				"SFTP: Map to Remote…"
+			],
+			[
+				"convtab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"gitamm",
+				"Git: Amend Commit"
+			],
+			[
+				"gitpush",
+				"Git: Push Current Branch"
+			],
+			[
+				"gitcom",
+				"Git: Commit"
+			],
+			[
+				"gitadd",
+				"Git: Add..."
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"gitpsuh",
+				"Git: Push Current Branch"
+			],
+			[
+				"gitcomi",
+				"Git: Commit"
+			],
+			[
+				"gitcommi",
+				"Git: Commit Selected Hunk"
+			],
+			[
+				"push",
+				"Git: Push Current Branch"
+			],
+			[
+				"gitc",
+				"Git: Commit"
+			],
+			[
+				"add",
+				"Git: Add Current File"
+			],
+			[
+				"commit",
+				"Git: Quick Commit"
+			],
+			[
+				"gitpus",
+				"Git: Push Current Branch"
+			],
+			[
+				"git pull",
+				"Git: Pull Current Branch"
+			],
+			[
+				"gitcomm",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add Current File"
+			],
+			[
+				"duple",
+				"File: Duplicate"
+			],
+			[
+				"js2",
+				"JS2Coffee: Convert & Overwrite Current File"
+			],
+			[
+				"shell",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"java",
+				"Format: Javascript"
+			],
+			[
+				"del",
+				"File: Delete"
+			],
+			[
+				"fetch",
+				"Fetch: Package"
+			],
+			[
+				"fetc",
+				"Fetch: File"
+			],
+			[
+				"tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"coppr",
+				"File: Copy Path as URI"
+			],
+			[
+				"revea",
+				"File: Reveal"
+			],
+			[
+				"js2co",
+				"JS2Coffee: Convert & Overwrite Current File"
+			],
+			[
+				"jston",
+				"JS2Coffee: Convert & Overwrite Current File"
+			],
+			[
+				"jso",
+				"JS2Coffee: Convert & Overwrite Current File"
+			],
+			[
+				"jsto",
+				"JS2Coffee: Convert & Overwrite Current File"
+			],
+			[
+				"coffe",
+				"Set Syntax: CoffeeScript"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"ope",
+				"File: Open In Browser - Production Server"
+			],
+			[
+				"convert",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"tab",
+				"View: Toggle Tabs"
+			],
+			[
+				"forma",
+				"Format: Javascript"
+			],
+			[
+				"javas",
+				"Format: Javascript"
+			],
+			[
+				"open dir",
+				"File: Open In Browser - Production Server"
+			],
+			[
+				"downl",
+				"SFTP: Download Folder"
+			],
+			[
+				"downlo",
+				"SFTP: Download File"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"reinden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"tag",
+				"Zen Coding: Select matching tag name"
+			],
+			[
+				"apple",
+				"Set Syntax: AppleScript"
+			],
+			[
+				"instpack",
+				"Package Control: Install Package"
+			],
+			[
+				"sq",
+				"Set Syntax: SQL"
+			],
+			[
+				"form",
+				"FormatSQL: Format SQL statement"
+			],
+			[
+				"duplc",
+				"File: Duplicate"
+			],
+			[
+				"for",
+				"Format: Javascript"
+			],
+			[
+				"uplf",
+				"SFTP: Upload Folder"
+			],
+			[
+				"uplofo",
+				"SFTP: Upload Folder"
+			],
+			[
+				"ul",
+				"SFTP: Upload File"
+			],
+			[
+				"uplofl",
+				"SFTP: Upload Folder"
+			],
+			[
+				"uplfol",
+				"SFTP: Upload Folder"
+			],
+			[
+				"reint",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"uplfold",
+				"SFTP: Upload Folder"
+			],
+			[
+				"dupi",
+				"File: Duplicate"
+			],
+			[
+				"upof",
+				"SFTP: Upload Folder"
+			],
+			[
+				"uploa",
+				"SFTP: Upload Folder"
+			],
+			[
+				"format",
+				"Format: Javascript"
+			],
+			[
+				"pack intal",
+				"Package Control: Install Package"
+			],
+			[
+				"zetag",
+				"Zen Coding: Go to matching tag"
+			],
+			[
+				"delete remo",
+				"Delete Remote File"
+			],
+			[
+				"upfo",
+				"SFTP: Upload Folder"
+			],
+			[
+				"upfold",
+				"SFTP: Upload Folder"
+			],
+			[
+				"upfol",
+				"SFTP: Upload Folder"
+			],
+			[
+				"dow",
+				"SFTP: Download Folder"
+			],
+			[
+				"dwfo",
+				"SFTP: Download Folder"
+			],
+			[
+				"do",
+				"SFTP: Download Folder"
+			],
+			[
+				"sync",
+				"SFTP: Sync Remote -> Local…"
+			],
+			[
+				"download",
+				"SFTP: Download Folder"
+			],
+			[
+				"enco",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"FORMA",
+				"Format: Javascript"
+			],
+			[
+				"FORM",
+				"Format: Javascript"
+			],
+			[
+				"jaa",
+				"Format: Javascript"
+			]
+		],
+		"width": 602.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/js/libs/i18n.js",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/models/telefones.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/controllers/core.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app.js/templates/contatos/editor.html",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app.js/templates/contatos/index.html",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/models/contatos.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/views/contatos/editor.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/views/contatos/index.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/views/appview.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/controllers/contatos.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/js/libs/backbone-pageable.min.js",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/js/libs/backgrid-paginator.min.js",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/less/app.less",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app.js/templates/contatos/index-item.html",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app.js/templates/skeleton.html",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/config.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/js/libs/backbone.js",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/less/backgrid-paginator.min.less",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/models/telefone.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/index.html",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ClientManager/public/js/templates/clients/index.html",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/models/cliente.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/models/clientes.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/models/emails.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/models/enderecos.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/src.sublime-project",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app.js/templates/listagens/contatos.html",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/controllers/HistoricosController.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/js/libs/backbone.associations.min.js",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/js/libs/backbone.relational.js",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/js/libs/backbone.relational.min.js",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/models/email.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/js/libs/backbone.associations-min.js",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/controllers/ClientesController.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_08_001444_criar_tabela_historicos.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/routes.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/models/Historico.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/controllers/TelefonesController.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_08_000609_criar_tabela_clientes.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/models/Cliente.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/controllers/ContatosController.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/controllers/EnderecosController.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/controllers/EmailsController.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/models/Endereco.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/models/Contato.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/seeds/TabelaEnderecosSeeder.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/start/global.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/models/Email.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/models/Telefone.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_08_002155_criar_tabela_usuarios.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_08_002551_criar_tabela_telefones.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_08_002602_criar_tabela_enderecos.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_08_003556_criar_tabela_emails.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_08_011740_criar_tabela_sessoes.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/laravel/framework/src/Illuminate/Support/Facades/Response.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/JsonResponse.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/laravel/framework/src/Illuminate/Http/Response.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/start/local.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/seeds/TabelaClientesSeeder.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/controllers/BaseController.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/seeds/TabelaTelefonesSeeder.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/seeds/TabelaEmailsSeeder.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_10_171440_create_tabela_contatos_telefones.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/error.html",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_07_235257_criar_tabela_contatos.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_10_171421_create_tabela_contatos_emails.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/seeds/TabelaContatosSeeder.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_10_171421_create_tabela_contatos_email.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/config/packages/.gitkeep",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/composer/autoload_classmap.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/bootstrap/autoload.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_10_181457_create_tabela_contatos_regras.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_10_181641_create_tabela_regras.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_10_171421_create_tabela_contato_email.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_10_171440_create_tabela_contato_telefones.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/symfony/routing/Symfony/Component/Routing/Router.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/lang/pt-BR/pagination.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/lang/pt-BR/validation.php",
+		"/Users/edygar/Library/Application Support/Sublime Text 2/Packages/User/php/nested.sublime-snippet",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/laravel/framework/src/Illuminate/Http/Request.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Request.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/symfony/routing/Symfony/Component/Routing/RouteCompiler.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/seeds/clientes.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/seeds/DatabaseSeeder.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/config/database.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php",
+		"/Users/edygar/Desktop/clientes.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/seeds/contatos.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/laravel/framework/src/Illuminate/Database/Console/SeedCommand.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/filters.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/seeds/_contatos.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/RefreshCommand.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/artisan",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/config/app.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/models/Usuario.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/seeds/usuarios.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/config/auth.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/seeds/emails.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/laravel/framework/src/Illuminate/Auth/Guard.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/Esmtp/Authenticator.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/vendor/laravel/framework/src/Illuminate/Support/Facades/Auth.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/index.html",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/models/Clientes.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/models/User.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/app/database/migrations/2013_02_07_222054_criar_tabela_usuarios.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/css/theme.css",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/erp.sublime-project",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/settings.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/api/index.php",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/controllers/clientes.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app/models/clientesCollection.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/css/app.css",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app.js/controllers/core.js",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/dist/assets/css/theme.css",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/dist/app.js/templates/skeleton.html",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/js/libs/backbone.subroute.js",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/Makefile",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/js/libs/sprintf.js",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/assets/js/libs/__.js",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/app.js/package.json",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/coffee/modules/core/application-view.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/coffee/modules/core/core.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/src/config.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/coffee/config.coffee",
+		"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/web/src/less/app.less"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"",
+			"*less",
+			"",
+			"*.php,/Users/edygar/Dropbox/Desenvolvimento/Web/holluseng.com.br/wp-content/plugins/mailpress",
+			"",
+			"/Users/edygar/Dropbox/Desenvolvimento/Web/gilgrafica.com.br/wp-content/plugins/cforms",
+			"",
+			"/Users/edygar/Dropbox/Desenvolvimento/Web/gilgrafica.com.br/wp-content/plugins/addthis",
+			"",
+			"*js",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"ContatosIndexTemplate",
+			"ContatosIndexView",
+			"]",
+			"#/",
+			"'",
+			"''",
+			"'",
+			"Class",
+			"@selected",
+			"selected",
+			"data-collapsed=\"false\"",
+			"\"",
+			"pageable",
+			"#999",
+			"999",
+			"666",
+			"numero.numero",
+			"numero",
+			"rawData.",
+			"@",
+			"telefones[i].numero",
+			"TemplateListagemContatos",
+			"%",
+			"l18n",
+			"default",
+			"attr",
+			"@$(\"input\")",
+			"adicionarTodos",
+			"adicionarUm",
+			"selecionar",
+			"ItemListaContato",
+			"ViewListagem",
+			"core",
+			"CoreController",
+			"@",
+			"Telefone",
+			"rawData",
+			"rawData.numero",
+			"rawData",
+			"telefones[i]",
+			"\"telefones\", \"emails\"",
+			"orderBy",
+			"Contrato::find",
+			"Cliente",
+			"cliente",
+			",",
+			"(",
+			"Telefone",
+			"contato",
+			"contatos",
+			"defaul",
+			"telefone",
+			"Contato",
+			"contato",
+			"Telefone",
+			"contato",
+			"Contato",
+			"\"required\"",
+			"contato",
+			"false",
+			"Contato",
+			"contato",
+			"Contato",
+			"contato",
+			"find",
+			"hasOne",
+			"contato",
+			"Contato",
+			"::count()",
+			"false",
+			"if ",
+			"if",
+			"\"\"",
+			"email",
+			"Email",
+			"telefones",
+			",['Content-Type' => 'application/json']",
+			"public static function json(",
+			"public static function json($data, $status = 200, $headers = array(",
+			"$input",
+			"404",
+			"400",
+			"200",
+			"400",
+			"404",
+			"já pertencente",
+			"200)",
+			"404)",
+			",400)",
+			",404)",
+			"200)",
+			"Response",
+			"validate_",
+			"í³",
+			"í£",
+			"í¡",
+			"í©",
+			"ÃƒÂ",
+			"check_fake",
+			"Telefone",
+			"telefone",
+			"get_object_vars",
+			"telefones()",
+			"contato",
+			"telefone",
+			"modifie",
+			"'telefone'",
+			"email",
+			"Email",
+			"Input::all",
+			"Input::",
+			"$input",
+			"\\$input",
+			"$input",
+			"$this->replace",
+			"telefone",
+			"([a-z0-9])$",
+			"$contato",
+			", 'operadora'",
+			"telefone",
+			"cnpj",
+			"'",
+			"Telefone",
+			"telefone",
+			"email",
+			"Email",
+			"Telefone",
+			"Email"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"telefone",
+			"Telefone",
+			"\\1,",
+			"references\\('id'\\)",
+			"",
+			"$table->increments('id');",
+			"->integer($1)->unsigned()",
+			"Hollus Engenharia e Meio Ambiente",
+			"Engenharia e Meio Ambiente",
+			"<?php echo \\1 ?>",
+			"\\)\\n\\{",
+			"\\1\\n",
+			"'\\1\\2'",
+			"\\n",
+			"",
+			"\\t\\n",
+			"('\\1','\\2','\\3','\\4','\\5','\\6'),",
+			"'\\1\\2'",
+			"\\1\\2",
+			"\\3",
+			"('\\1','\\2','\\3','\\4','\\5','\\6'),",
+			"\\\\'",
+			"('\\1','\\2','\\3','\\4','\\5','\\6'),       ",
+			"('\\1','\\2','\\3','\\4','\\5','\\6'),",
+			"\\\\'",
+			"\\'",
+			"('\\1','\\2','\\3','\\4','\\5','\\6'),",
+			"('\\1','\\2','\\3','\\4','\\5','\\6')",
+			"null",
+			"        ",
+			"",
+			"\\t\"\\1\",\\n\\t",
+			"\\n\"\\1\":\\n[\\n\\2\\n],",
+			"",
+			"\\t\"\\1\",\\n\\t",
+			"\\n\"\\1\":\\n[\\n\\2\\n],",
+			"",
+			"\\t\"\\1\",\\n\\t",
+			"\\n\"\\1\":\\n[\\n\\2\\n],",
+			"",
+			"\\t\"\\1\",\\n\\t",
+			"\\n\"\\1\":\\n[\\n\\2\\n],",
+			"",
+			"\\t\"\\1\",\\n\\t",
+			"\\n\"\\1\":\\n[\\n\\2\\n],",
+			"",
+			"\\t\"\\1\",\\n\\t",
+			"\\n\"\\1\":\\n[\\n\\2\\n],",
+			"\\t\"\\1\",\\n\\t",
+			"\\n\"\\1\":\\n[\\n\\2\\n],",
+			"\\t\"\\1\",\\n\\t",
+			"\\n\"\\1\":\\n[\\n\\2\\n],",
+			"",
+			"\\t\"\\1\",\\n\\t",
+			"\\n\"\\1\":\\n[\\n\\2\\n],",
+			"",
+			"\\t\"\\1\",\\n\\t",
+			"\\n\"\\1\":\\n[\\n\\2\\n],",
+			"",
+			"\\t\"\\1\",\\n\\t",
+			"\\t\"\\1\",",
+			"\\n\"\\1\":\\n[\\n\\2\\n],",
+			"",
+			"\\t\"\\1\",",
+			"\\n],\\n\"\\1\":\\n[\\n",
+			"",
+			"\\s",
+			"\\n",
+			"\\t\"\\1\",",
+			"\\n],\\n\"\\1\":\\n[\\n",
+			"",
+			"\":[\\n\\t",
+			"",
+			"\":[\\t",
+			"\":[",
+			"[\"\\1\"],",
+			"[\\1],",
+			"\\n\\t\"\\1\":\\n\\n[\\2]\\n\\n,",
+			"\\n",
+			",",
+			"\\n",
+			"\\1",
+			"'",
+			"/",
+			"\\n</a>",
+			"\"\\1\",",
+			"span class=\\\\\"\\2\\\\\"\\1\\2",
+			"span class=\\\"\\2\\\"\\1\\2",
+			"span class=\"\\2\"\\1\\2",
+			"\\1 = replace\\(\\1,'www/','redtecnologia.com/assojafgo.com.br/'\\),",
+			"\\1 = replace\\(\\1,'www/',redtecnologia.com/assojafgo.com.br/\\),",
+			"\\1 = replace\\(\\1,'www/',redtecnologia.com/assojafgo.com.br/\\)",
+			"\\1 = replace(\\1,'www/',redtecnologia.com/assojafgo.com.br/)",
+			"\\1",
+			"if"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 94.0
+	},
+	"output.git":
+	{
+		"height": 94.0
+	},
+	"output.sftp":
+	{
+		"height": 127.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"core",
+				"src/app/controllers/core.coffee"
+			],
+			[
+				"l18",
+				"src/assets/js/libs/i18n.js"
+			],
+			[
+				"telefo",
+				"src/app/models/telefones.coffee"
+			],
+			[
+				"modcon",
+				"src/app/models/contatos.coffee"
+			],
+			[
+				"contcontat",
+				"src/app/controllers/contatos.coffee"
+			],
+			[
+				"contocont",
+				"src/app/controllers/contatos.coffee"
+			],
+			[
+				"index.h",
+				"templates/contatos/index.html"
+			],
+			[
+				"edi",
+				"src/app/views/contatos/editor.coffee"
+			],
+			[
+				"contatos",
+				"src/app/models/contatos.coffee"
+			],
+			[
+				"contatoindex",
+				"src/app/views/contatos/index.coffee"
+			],
+			[
+				"appvi",
+				"src/app/views/appview.coffee"
+			],
+			[
+				"controlcont",
+				"src/app/controllers/contatos.coffee"
+			],
+			[
+				"contaedi",
+				"src/app/views/contatos/editor.coffee"
+			],
+			[
+				"contatinde",
+				"src/app/views/contatos/index.coffee"
+			],
+			[
+				"ske",
+				"templates/skeleton.html"
+			],
+			[
+				"coni",
+				"src/app/config.coffee"
+			],
+			[
+				"pagina",
+				"src/assets/js/libs/backgrid-paginator.min.js"
+			],
+			[
+				"agina",
+				"src/assets/js/libs/backgrid-paginator.min.js"
+			],
+			[
+				"confi",
+				"src/app/config.coffee"
+			],
+			[
+				"config",
+				"src/app/config.coffee"
+			],
+			[
+				"appless",
+				"src/assets/less/app.less"
+			],
+			[
+				"tele",
+				"src/app/models/telefones.coffee"
+			],
+			[
+				"assets/js/libs/backbon",
+				"src/assets/js/libs/backbone.js"
+			],
+			[
+				"index",
+				"src/index.html"
+			],
+			[
+				"telef",
+				"src/app/models/telefones.coffee"
+			],
+			[
+				"contato",
+				"app/controllers/ContatosController.php"
+			],
+			[
+				"contatocotr",
+				"app/controllers/ContatosController.php"
+			],
+			[
+				"fil",
+				"app/filters.php"
+			],
+			[
+				"filt",
+				"app/filters.php"
+			],
+			[
+				"historico",
+				"app/controllers/HistoricosController.php"
+			],
+			[
+				"route",
+				"app/routes.php"
+			],
+			[
+				"filter",
+				"app/filters.php"
+			],
+			[
+				"relation.php",
+				"vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/Relation.php"
+			],
+			[
+				"associa",
+				"assets/js/libs/backbone.associations.min.js"
+			],
+			[
+				"associations",
+				"assets/js/libs/backbone.associations-min.js"
+			],
+			[
+				"backbone-pageable.min",
+				"assets/js/libs/backbone-pageable.min.js"
+			],
+			[
+				"routes",
+				"api/app/routes.php"
+			],
+			[
+				"response",
+				"api/vendor/laravel/framework/src/Illuminate/Http/Response.php"
+			],
+			[
+				"component/httpfoundation/jsonresponse",
+				"api/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/JsonResponse.php"
+			],
+			[
+				"ontatoscon",
+				"api/app/controllers/ContatosController.php"
+			],
+			[
+				"router",
+				"api/vendor/laravel/framework/src/Illuminate/Routing/Router.php"
+			],
+			[
+				"baseco",
+				"api/app/controllers/BaseController.php"
+			],
+			[
+				"ontato",
+				"api/app/controllers/ContatosController.php"
+			],
+			[
+				"telecontro",
+				"api/app/controllers/TelefonesController.php"
+			],
+			[
+				"emailc",
+				"api/app/controllers/EmailsController.php"
+			],
+			[
+				"rout",
+				"api/app/routes.php"
+			],
+			[
+				"conta",
+				"api/app/models/Contato.php"
+			],
+			[
+				"seedema",
+				"api/app/database/seeds/TabelaEmailsSeeder.php"
+			],
+			[
+				"email",
+				"api/app/controllers/EmailsController.php"
+			],
+			[
+				"ema",
+				"api/app/models/Email.php"
+			],
+			[
+				"migrator",
+				"api/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php"
+			],
+			[
+				"auto",
+				"api/vendor/composer/autoload_classmap.php"
+			],
+			[
+				"autoload",
+				"api/vendor/composer/autoload_classmap.php"
+			],
+			[
+				"autoloa",
+				"api/vendor/composer/autoload_classmap.php"
+			],
+			[
+				"modelconta",
+				"api/app/models/Contato.php"
+			],
+			[
+				"contatocon",
+				"api/app/controllers/ContatosController.php"
+			],
+			[
+				"emailconr",
+				"api/app/controllers/EmailsController.php"
+			],
+			[
+				"telefone",
+				"api/app/models/Telefone.php"
+			],
+			[
+				"emailscon",
+				"api/app/controllers/EmailsController.php"
+			],
+			[
+				"symfonycomponentrouter",
+				"api/vendor/symfony/routing/Symfony/Component/Routing/Router.php"
+			],
+			[
+				"symfonhttprequest",
+				"vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Request.php"
+			],
+			[
+				"reque",
+				"vendor/laravel/framework/src/Illuminate/Http/Request.php"
+			],
+			[
+				"symfoncomponhttpfoundaresponse",
+				"vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Response.php"
+			],
+			[
+				"respon",
+				"vendor/laravel/framework/src/Illuminate/Http/Response.php"
+			],
+			[
+				"contat",
+				"app/controllers/ContatosController.php"
+			],
+			[
+				"emai",
+				"app/models/Email.php"
+			],
+			[
+				"emailco",
+				"app/controllers/EmailsController.php"
+			],
+			[
+				"telefcontr",
+				"app/controllers/TelefonesController.php"
+			],
+			[
+				"telecontrol",
+				"app/controllers/TelefonesController.php"
+			],
+			[
+				"routcom",
+				"vendor/symfony/routing/Symfony/Component/Routing/RouteCompiler.php"
+			],
+			[
+				"telefon",
+				"app/models/Telefone.php"
+			],
+			[
+				"emailcontro",
+				"app/controllers/EmailsController.php"
+			],
+			[
+				"contol",
+				"app/controllers/ContatosController.php"
+			],
+			[
+				"eleqmodel",
+				"vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php"
+			],
+			[
+				"data",
+				"app/config/database.php"
+			],
+			[
+				"autol",
+				"vendor/composer/autoload_classmap.php"
+			],
+			[
+				"contatos.php",
+				"app/database/seeds/contatos.php"
+			],
+			[
+				"_con",
+				"app/database/seeds/_contatos.php"
+			],
+			[
+				"artia",
+				"artisan"
+			],
+			[
+				"daabas",
+				"app/config/database.php"
+			],
+			[
+				"app",
+				"app/config/app.php"
+			],
+			[
+				"emailsp",
+				"app/controllers/EmailsController.php"
+			],
+			[
+				"clientecon",
+				"app/controllers/ClientesController.php"
+			],
+			[
+				"emails",
+				"app/database/seeds/emails.php"
+			],
+			[
+				"usuario",
+				"app/models/Usuario.php"
+			],
+			[
+				"filte",
+				"app/filters.php"
+			],
+			[
+				"usuarios",
+				"app/database/seeds/usuarios.php"
+			],
+			[
+				"usua",
+				"api/app/models/Usuario.php"
+			],
+			[
+				"user",
+				"api/app/models/User.php"
+			],
+			[
+				"criartabtele",
+				"api/app/database/migrations/2013_02_08_002551_criar_tabela_telefones.php"
+			],
+			[
+				"apitabclient",
+				"api/app/database/migrations/2013_02_08_000609_criar_tabela_clientes.php"
+			],
+			[
+				"tabclient",
+				"api/app/database/migrations/2013_02_08_000609_criar_tabela_clientes.php"
+			],
+			[
+				"historicos",
+				"api/app/database/migrations/2013_02_08_001444_criar_tabela_historicos.php"
+			],
+			[
+				"da",
+				"api/app/config/database.php"
+			],
+			[
+				"medipla",
+				"wp-content/plugins/red-media-player/red-media-player.php"
+			],
+			[
+				"funion",
+				"wp-content/themes/holluseng/functions.php"
+			],
+			[
+				"moclientes",
+				"web/src/app/models/clientes.coffee"
+			],
+			[
+				"modelcliente",
+				"web/src/app/models/cliente.coffee"
+			],
+			[
+				"clientes",
+				"web/src/app/controllers/clientes.coffee"
+			],
+			[
+				"api",
+				"api/index.php"
+			],
+			[
+				"appcss",
+				"web/src/assets/css/app.css"
+			],
+			[
+				"theme",
+				"web/src/assets/css/theme.css"
+			],
+			[
+				"orecoff",
+				"web/src/app/controllers/core.coffee"
+			],
+			[
+				"corejs",
+				"web/src/app.js/controllers/core.js"
+			],
+			[
+				"thecss",
+				"web/src/assets/css/theme.css"
+			],
+			[
+				"skeleton",
+				"web/src/app.js/templates/skeleton.html"
+			],
+			[
+				"templa",
+				"web/dist/app.js/templates/skeleton.html"
+			],
+			[
+				"subrout",
+				"web/src/assets/js/libs/backbone.subroute.js"
+			],
+			[
+				"m",
+				"web/Makefile"
+			],
+			[
+				"appview",
+				"web/src/app/views/appview.coffee"
+			],
+			[
+				"subrou",
+				"web/src/assets/js/libs/backbone.subroute.js"
+			],
+			[
+				"index.html",
+				"web/src/index.html"
+			],
+			[
+				"apple",
+				"web/src/less/app.less"
+			],
+			[
+				"fonless",
+				"web/src/less/font-awesome.less"
+			],
+			[
+				"the",
+				"web/src/css/theme.css"
+			],
+			[
+				"thee",
+				"web/src/css/theme.css"
+			],
+			[
+				"make",
+				"web/Makefile"
+			],
+			[
+				"help",
+				"api/helpers.php"
+			],
+			[
+				"html",
+				"web/src/js/templates/pages/login-form.html"
+			],
+			[
+				"coerouter",
+				"web/src/coffee/modules/core/router.coffee"
+			],
+			[
+				"inde",
+				"api/index.php"
+			],
+			[
+				"clie",
+				"web/src/coffee/modules/clientes/router.coffee"
+			],
+			[
+				"inde.h",
+				"web/src/index.html"
+			],
+			[
+				"wa",
+				"web/watch.sh"
+			],
+			[
+				"main.cof",
+				"web/src/coffee/main.coffee"
+			],
+			[
+				"mainles",
+				"web/src/less/main.less"
+			],
+			[
+				"ma",
+				"web/Makefile"
+			],
+			[
+				"less",
+				"web/src/less/main.less"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/edygar/Dropbox/Desenvolvimento/Web/ERP/erp.sublime-project"
+			],
+			[
+				"assoj",
+				"/Users/edygar/Dropbox/Desenvolvimento/Web/assojafgo.com.br/assojaf.sublime-project"
+			],
+			[
+				"sind",
+				"/Users/edygar/Dropbox/Desenvolvimento/Web/sindjustica.com/sindjustica.sublime-project"
+			],
+			[
+				"si",
+				"/Users/edygar/Dropbox/Desenvolvimento/Web/sindjustica.com/sindjustica.sublime-project"
+			],
+			[
+				"ass",
+				"/Users/edygar/Dropbox/Desenvolvimento/Web/assojafgo.com.br/assojaf.sublime-project"
+			],
+			[
+				"e",
+				"/Users/edygar/Dropbox/Desenvolvimento/Web/edygareluiza.com.br/edygareluiza.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 232.0,
+	"status_bar_visible": true
+}

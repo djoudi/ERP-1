@@ -1,0 +1,58 @@
+<div class="row-fluid">
+	<div class="widget widget-padding span12">
+		<div class="widget-header">
+			<i class="icon-group">
+			</i>
+			<h5>
+				<%=__("TITLE_CONTACT_INDEX", "Todos os Contato") %>
+			</h5>
+			<div class="widget-buttons">
+			</div>
+		</div>
+		<div class="widget-body">
+			<div class="dataTables_wrapper form-inline" role="grid">
+
+				<p>
+					<a class="btn" href="#contatos/novo" class="tip collapse" data-original-title="">
+						<i class="icon-plus-sign"></i> <%=__("BUTTON_NEW_CONTACT", "Novo Contato") %>
+					</a>
+					<a class="btn disabled" href="#" class="tip collapse" data-original-title="">
+					 	<i class="icon-edit"></i> <%=__("BUTTON_EDIT_CONTACT", "Editar Contato") %>
+					</a>
+					<a class="btn disabled" href="#" class="tip collapse" data-original-title="">
+					 	<i class="icon-remove-sign"></i> <%=__("BUTTON_REMOVE_CONTACT", "Apagar Contato") %>
+					</a>
+				</p>	
+
+				<table class="table table-striped dataTable">
+					<thead>
+						<tr role="row">
+							<th role="columnheader" rowspan="1" colspan="1">
+								<input type="checkbox" name="" value="" placeholder="">
+							</th>
+							<th role="columnheader" rowspan="1" colspan="1" class="max-40">
+								<i class="icon-user"></i>
+								<%=__("HEADER_CONTACT_NAME", "Nome") %>
+							</th>
+							<th role="columnheader" rowspan="1" colspan="1">
+								<i class="icon-phone"></i>
+								<%=__("HEADER_CONTACT_PHONES", "Telefone(s)") %>
+							</th>
+							<th>
+								<i class="icon-envelope"></i>
+								<%=__("HEADER_CONTACT_EMAILS", "Email(s)") %>
+							</th>
+							<th class="hidden-phone">
+								<%=__("HEADER_CONTACT_NOTES", "Anotações") %>
+							</th>
+						</tr>
+					</thead>
+					<tbody role="alert" aria-live="polite" aria-relevant="all" class="contatos">
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- /widget-body -->
+	</div>
+	<!-- /widget -->
+</div>
