@@ -7,21 +7,6 @@ define [
 	#	Model do Telefone
 	###
 	class Telefone extends Backbone.Model
-	Telefone.schema = Telefone::schema =
-		identificacao:
-			type: 	"Text"
-			title:	"Rótulo"
-
-		numero:
-			type: 	"Number"
-			title:	"Número"
-
-		operadora:
-			type: 	"Text"
-			title:	"Operadora"
-
-
-
 	Telefone.format =
 		fromRaw: (rawData)->
 			length = rawData.numero.length;

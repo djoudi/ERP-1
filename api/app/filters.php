@@ -15,8 +15,7 @@ App::before(function($request)
 {
 	header('Access-Control-Allow-Origin: *');
 	header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
-	header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
-    header('Access-Control-Allow-Headers: X-PINGARUNER');
+	header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, X-PINGARUNER');
     header('Access-Control-Max-Age: 1728000');
 	header('Content-Type: application/json');
 

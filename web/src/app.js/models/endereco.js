@@ -5,7 +5,7 @@
 
   define(['backbone'], function(Backbone) {
     var Endereco;
-    Endereco = (function(_super) {
+    return Endereco = (function(_super) {
 
       __extends(Endereco, _super);
 
@@ -16,17 +16,6 @@
       return Endereco;
 
     })(Backbone.Model);
-    Endereco.schema = Endereco.prototype.schema = {
-      identificacao: {
-        type: "Text",
-        label: "Rótulo"
-      },
-      endereco: {
-        type: "Text",
-        label: "Endereço"
-      }
-    };
-    return Endereco;
   });
 
 }).call(this);

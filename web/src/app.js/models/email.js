@@ -5,7 +5,7 @@
 
   define(['backbone'], function(Backbone) {
     var Email;
-    Email = (function(_super) {
+    return Email = (function(_super) {
 
       __extends(Email, _super);
 
@@ -16,17 +16,6 @@
       return Email;
 
     })(Backbone.Model);
-    Email.schema = Email.prototype.schema = {
-      identificacao: {
-        type: "Text",
-        title: "Rótulo"
-      },
-      email: {
-        type: "Text",
-        title: "E-mail"
-      }
-    };
-    return Email;
   });
 
 }).call(this);

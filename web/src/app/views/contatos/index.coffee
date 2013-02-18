@@ -18,9 +18,9 @@ define [
 		render: ->
 			@$el.html @template
 				contato   : @model.toJSON()          
-				emails    : @model.emails.toJSON()   
-				enderecos : @model.enderecos.toJSON()
-				telefones : @model.telefones.formatFromRaw()
+				emails    : @model.get("emails").toJSON()   
+				enderecos : @model.get("enderecos").toJSON()
+				telefones : @model.get("telefones").formatFromRaw()
 
 			@input = @$("input")
 
@@ -46,27 +46,44 @@ define [
 
 	class ContatosIndexView extends Backbone.View
 		template: _.template ContatosIndexTemplate
+		events:
+			'click [data-action="edit"]' : "edit"
+			'click [data-action="remove"]' : "remove"
+
 		initialize: (options)->
 			super(options)
 			@collection = new Contatos([]) if !@collections?
-			@selected = {}
+			@selected = new Backbone.Collection
 
 			@collection.on "add",	@addOne, @
 			@collection.on "reset", @addAll, @
 			@collection.on "all",	@render, @
+
+			@selected.on "all", ()=>
+				@editButton.toggleClass("disabled", !Boolean(@selected.length))
+				@removeButton.toggleClass("disabled", !Boolean(@selected.length))
 
 			@collection.fetch()
 
 		getSelected: ->
 			@selected
 
+		edit: ->
+			return if !@selected.length
+			@trigger "edit", @selected.first()
+
+		remove: ->
+			return if !@selected.length
+			@trigger "remove", @selected.first()
+
+
 		addOne: (contato) ->
 			contatoView = new ContatoIndexView model:contato
 			contatoView.on 'selected', (contato)=>
-				@selected[contato.model.id] = contato
+				@selected.add contato.model
 
 			contatoView.on 'unselected', (contato)=>
-				delete @selected[contato.model.id]
+				@selected.remove contato.model
 
 			@$(".contatos").append  contatoView.render().el
 
@@ -76,5 +93,9 @@ define [
 		render: ->
 			@$el.html @template()
 			@addAll()
+
+			@editButton = @$("[data-action='edit']")
+			@removeButton =  @$("[data-action='remove']")
+
 			@
 

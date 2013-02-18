@@ -26,16 +26,42 @@ define [
 			if AppView.view? && AppView.view.constructor.name is "ContatosIndexView"
 				return
 
-			AppView.setTitle 	"Contatos"
-			AppView.setView 	(new ContatosIndexView(collection: @contatos))
+			AppView.setView "Contatos", (new ContatosIndexView(collection: @contatos))
+			AppView.view.on "edit", (contato)=>
+				@navigate "#{@prefix}/#{contato.id}", trigger: true
+
+			AppView.view.on "remove", (contato)=>
+				@contatos.remove(contato)
+				contato.destroy()
 
 		new: ->
-			if !AppView.view || AppView.view? && AppView.view.constructor.name is not "ContatosIndexView"
-				AppView.setView new ContatosIndexView(collection: @contatos)
 
-			editor = (new ContatoEditorView())
+			if !AppView.view || AppView.view? && AppView.view.constructor.name is not "ContatosIndexView"
+				@index()
+				
+			editor = (new ContatoEditorView( model: new @contatos.model() ))
+
 			editor.$el.on "hidden", =>
 				@navigate "#{@prefix}/"
+
 			editor.render()
 
-		edit: ->
+		edit: (contato)->
+
+			if !_.isObject(contato)
+				contato = new @contatos.model( id: contato )
+
+			if !AppView.view || AppView.view? && AppView.view.constructor.name is not "ContatosIndexView"
+				@index()
+
+
+			contato.fetch 
+				success: =>
+					editor = (new ContatoEditorView( model: contato ))
+
+					editor.$el.on "hidden", =>
+						@navigate "#{@prefix}/"
+
+					editor.render()
+
+

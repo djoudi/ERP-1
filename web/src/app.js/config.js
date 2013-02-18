@@ -30,8 +30,11 @@
       "backbone-forms": {
         deps: ['backbone']
       },
-      "backbone-forms-bootstrap": {
+      "backbone-forms-list": {
         deps: ['backbone-forms']
+      },
+      "backbone-forms-bootstrap": {
+        deps: ['backbone-forms-list']
       }
     },
     paths: {

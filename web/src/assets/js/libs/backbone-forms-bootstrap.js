@@ -50,14 +50,17 @@
     list: '\
       <div class="bbf-list">\
         <ul class="unstyled clearfix">{{items}}</ul>\
-        <button class="btn bbf-add" data-action="add">Adicionar</button>\
+        <div class="bbf-list-controls">\
+          <button type="button" class="btn bbf-del" data-action="clear"> <i class="icon-trash"></i> '+__("BACKBONE_FORMS_LIST_CLEAR_BUTTON","Remover Todos")+' </button>\
+          <button class="btn btn-primary bbf-add" data-action="add"><i class="icon-plus-sign"></i> '+__("BACKBONE_FORMS_LIST_ADD_BUTTON","Adicionar")+'</button>\
+        </div>\
       </div>\
     ',
 
     listItem: '\
-      <li class="clearfix pull-left">\
+      <li class="clearfix">\
+        <button type="button" class="btn bbf-del" data-action="remove"> <i class="icon-trash"></i></button>\
         {{editor}}\
-        <button type="button" class="btn bbf-del" data-action="remove">&times;</button>\
       </li>\
     ',
 
@@ -84,7 +87,15 @@
       <div class="bbf-list-modal">\
         {{summary}}\
       </div>\
-    '
+    ',
+
+    'listField': '\
+      <div>\
+        {{editor}}\
+        <div class="help-inline">{{error}}</div>\
+        <div class="help-block">{{help}}</div>\
+      </div>\
+      '
   }, {
   
     //CLASSNAMES

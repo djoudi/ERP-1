@@ -26,9 +26,9 @@
       ContatoIndexView.prototype.render = function() {
         this.$el.html(this.template({
           contato: this.model.toJSON(),
-          emails: this.model.emails.toJSON(),
-          enderecos: this.model.enderecos.toJSON(),
-          telefones: this.model.telefones.formatFromRaw()
+          emails: this.model.get("emails").toJSON(),
+          enderecos: this.model.get("enderecos").toJSON(),
+          telefones: this.model.get("telefones").formatFromRaw()
         }));
         this.input = this.$("input");
         return this;
@@ -69,20 +69,44 @@
 
       ContatosIndexView.prototype.template = _.template(ContatosIndexTemplate);
 
+      ContatosIndexView.prototype.events = {
+        'click [data-action="edit"]': "edit",
+        'click [data-action="remove"]': "remove"
+      };
+
       ContatosIndexView.prototype.initialize = function(options) {
+        var _this = this;
         ContatosIndexView.__super__.initialize.call(this, options);
         if (!(this.collections != null)) {
           this.collection = new Contatos([]);
         }
-        this.selected = {};
+        this.selected = new Backbone.Collection;
         this.collection.on("add", this.addOne, this);
         this.collection.on("reset", this.addAll, this);
         this.collection.on("all", this.render, this);
+        this.selected.on("all", function() {
+          _this.editButton.toggleClass("disabled", !Boolean(_this.selected.length));
+          return _this.removeButton.toggleClass("disabled", !Boolean(_this.selected.length));
+        });
         return this.collection.fetch();
       };
 
       ContatosIndexView.prototype.getSelected = function() {
         return this.selected;
+      };
+
+      ContatosIndexView.prototype.edit = function() {
+        if (!this.selected.length) {
+          return;
+        }
+        return this.trigger("edit", this.selected.first());
+      };
+
+      ContatosIndexView.prototype.remove = function() {
+        if (!this.selected.length) {
+          return;
+        }
+        return this.trigger("remove", this.selected.first());
       };
 
       ContatosIndexView.prototype.addOne = function(contato) {
@@ -92,10 +116,10 @@
           model: contato
         });
         contatoView.on('selected', function(contato) {
-          return _this.selected[contato.model.id] = contato;
+          return _this.selected.add(contato.model);
         });
         contatoView.on('unselected', function(contato) {
-          return delete _this.selected[contato.model.id];
+          return _this.selected.remove(contato.model);
         });
         return this.$(".contatos").append(contatoView.render().el);
       };
@@ -107,6 +131,8 @@
       ContatosIndexView.prototype.render = function() {
         this.$el.html(this.template());
         this.addAll();
+        this.editButton = this.$("[data-action='edit']");
+        this.removeButton = this.$("[data-action='remove']");
         return this;
       };
 

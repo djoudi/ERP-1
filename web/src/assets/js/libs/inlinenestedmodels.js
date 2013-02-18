@@ -1,96 +1,97 @@
 /* vim: set tabstop=2 shiftwidth=2 softtabstop=2: */
 
 define([
-    'backbone',
-    'backbone-forms',
-    'backbone-forms-list'
-],
+	'backbone',
+	'backbone-forms',
+	'backbone-forms-list'
+	],
 
-function(Backbone) {
+	function(Backbone) {
 
-  var Form = Backbone.Form,
-      editors = Form.editors;
-      
-  // we don't want our nested form to have a (nested) <form> tag
-  // (currently bbf includes form tags: https://github.com/powmedia/backbone-forms/issues/8)
-  // aside from being strange html to have nested form tags, it causes submission-upon-enter
-  Form.setTemplates({
-    nestedForm: '<div class="bbf-nested-form">{{fieldsets}}</div>'
-  });
+		var Form = Backbone.Form,
+		editors = Form.editors;
 
-  editors.List.InlineNestedModel = editors.List.NestedModel.extend({
-  
-    events: {},
+	// we don't want our nested form to have a (nested) <form> tag
+	// (currently bbf includes form tags: https://github.com/powmedia/backbone-forms/issues/8)
+	// aside from being strange html to have nested form tags, it causes submission-upon-enter
+	Form.setTemplates({
+		nestedForm: '<div class="bbf-nested-form">{{fieldsets}}</div>'
+	});
 
-    /**
-     * @param {Object} options
-     */
-    initialize: function(options) {
-      editors.Base.prototype.initialize.call(this, options);
+	editors.List.InlineNestedModel = editors.List.NestedModel.extend({
 
-      // Reverse the effect of the "feature" of pressing enter adding new item
-      // https://github.com/powmedia/backbone-forms/commit/6201a6f44984087b71c216dd637b280dab9b757d
-      delete this.options.item.events['keydown input[type=text]'];
+		events: {},
 
-      var schema = this.schema;
-      if (!schema.model) throw 'Missing required option "schema.model"';
+		/**
+		 * @param {Object} options
+		 */
+		initialize: function(options) {
+			editors.Base.prototype.initialize.call(this, options);
 
-      this.nestedSchema = schema.model.prototype.schema;
-      if (_.isFunction(this.nestedSchema)) this.nestedSchema = this.nestedSchema();
+			// Reverse the effect of the "feature" of pressing enter adding new item
+			// https://github.com/powmedia/backbone-forms/commit/6201a6f44984087b71c216dd637b280dab9b757d
+			delete this.options.item.events['keydown input[type=text]'];
 
-      var list = options.list;
-      list.on('add', this.onUserAdd, this);
-    },
-    
-    /**
-     * Render the list item representation
-     */
-    render: function() {
-      var self = this;
+			var schema = this.schema;
 
-      this.$el.html(this.getFormEl());
+			this.nestedSchema = schema.subSchema || _.result(schema.model.schema);
 
-      setTimeout(function() {
-        self.trigger('readyToAdd');
-      }, 0);
+			if (!this.nestedSchema) throw 'Missing required option "schema.model"';
 
-      return this;
-    },
+			var list = options.list;
+			list.on('add', this.onUserAdd, this);
+		},
+		
+		/**
+		 * Render the list item representation
+		 */
+		render: function() {
+			var self = this;
 
-    getFormEl: function() {
-      var schema = this.schema,
-          value = this.getValue();
+			this.$el.html(this.getFormEl());
 
-      // when adding a new item, need to instantiate a new empty model
-      // TODO is this the best place for this?
-      if (!value) { value = new schema.model(); }
+			setTimeout(function() {
+				self.trigger('readyToAdd');
+			}, 0);
 
-      this.form = new Form({
-        /*
-        schema: this.nestedSchema,
-        data: this.value
-        */
-        template: 'nestedForm',
-        model: value
-      });
-      
-      return this.form.render().el;
-    },
+			return this;
+		},
 
-    getValue: function() {
-      if (this.form) {
-        this.value = this.form.getValue();
-        //console.log('nested form value', this.value);
-        // see https://github.com/powmedia/backbone-forms/issues/81
-      }
-      return this.value;
-    },
+		getFormEl: function() {
+			var schema = this.schema,
+			value = this.getValue();
 
-    onUserAdd: function() {
-      this.form.$('input, textarea, select').first().focus();
-    }
+			// when adding a new item, need to instantiate a new empty model
+			// TODO is this the best place for this?
+			if (!value) {
+				value = new schema.model();
+			}
 
-  });
-  
-  return Backbone;
+			this.form = new Form({
+				/*
+				data: this.value
+				*/
+				template: 'nestedForm',
+				model: value,
+				schema: this.nestedSchema
+			});
+			return this.form.render().el;
+		},
+
+		getValue: function() {
+			if (this.form) {
+				this.value = this.form.getValue();
+			//console.log('nested form value', this.value);
+			// see https://github.com/powmedia/backbone-forms/issues/81
+		}
+		return this.value;
+	},
+
+	onUserAdd: function() {
+		this.form.$('input, textarea, select').first().focus();
+	}
+
+});
+
+return Backbone;
 });

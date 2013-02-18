@@ -24,31 +24,62 @@
       ContatosRouter.prototype.contatos = new Contatos();
 
       ContatosRouter.prototype.index = function() {
+        var _this = this;
         if ((AppView.view != null) && AppView.view.constructor.name === "ContatosIndexView") {
           return;
         }
-        AppView.setTitle("Contatos");
-        return AppView.setView(new ContatosIndexView({
+        AppView.setView("Contatos", new ContatosIndexView({
           collection: this.contatos
         }));
+        AppView.view.on("edit", function(contato) {
+          return _this.navigate("" + _this.prefix + "/" + contato.id, {
+            trigger: true
+          });
+        });
+        return AppView.view.on("remove", function(contato) {
+          _this.contatos.remove(contato);
+          return contato.destroy();
+        });
       };
 
       ContatosRouter.prototype["new"] = function() {
         var editor,
           _this = this;
         if (!AppView.view || (AppView.view != null) && AppView.view.constructor.name === !"ContatosIndexView") {
-          AppView.setView(new ContatosIndexView({
-            collection: this.contatos
-          }));
+          this.index();
         }
-        editor = new ContatoEditorView();
+        editor = new ContatoEditorView({
+          model: new this.contatos.model()
+        });
         editor.$el.on("hidden", function() {
           return _this.navigate("" + _this.prefix + "/");
         });
         return editor.render();
       };
 
-      ContatosRouter.prototype.edit = function() {};
+      ContatosRouter.prototype.edit = function(contato) {
+        var _this = this;
+        if (!_.isObject(contato)) {
+          contato = new this.contatos.model({
+            id: contato
+          });
+        }
+        if (!AppView.view || (AppView.view != null) && AppView.view.constructor.name === !"ContatosIndexView") {
+          this.index();
+        }
+        return contato.fetch({
+          success: function() {
+            var editor;
+            editor = new ContatoEditorView({
+              model: contato
+            });
+            editor.$el.on("hidden", function() {
+              return _this.navigate("" + _this.prefix + "/");
+            });
+            return editor.render();
+          }
+        });
+      };
 
       return ContatosRouter;
 

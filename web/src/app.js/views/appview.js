@@ -21,13 +21,9 @@
 
       AppView.prototype.rendered = false;
 
-      AppView.prototype.setView = function(view) {
-        this.view = view;
-        return this.render();
-      };
-
-      AppView.prototype.setTitle = function(title) {
+      AppView.prototype.setView = function(title, view) {
         this.title = title;
+        this.view = view;
         return this.render();
       };
 
@@ -41,8 +37,8 @@
         if (this.view != null) {
           this.$("#view").html(this.view.render().$el);
         }
-        this.$(".main_container > header > .heading").text(this.title);
         document.title = "" + this.title + " - Top Claro";
+        this.$("#view-title").html(this.title);
         return this;
       };
 

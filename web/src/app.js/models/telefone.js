@@ -20,20 +20,6 @@
       return Telefone;
 
     })(Backbone.Model);
-    Telefone.schema = Telefone.prototype.schema = {
-      identificacao: {
-        type: "Text",
-        title: "Rótulo"
-      },
-      numero: {
-        type: "Number",
-        title: "Número"
-      },
-      operadora: {
-        type: "Text",
-        title: "Operadora"
-      }
-    };
     Telefone.format = {
       fromRaw: function(rawData) {
         var length, numero;

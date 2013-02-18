@@ -11,10 +11,7 @@ define [
 		title: "Carregando..."
 		view: null
 		rendered: false
-		setView: (@view)->
-			@render()
-
-		setTitle: (@title)->
+		setView: (@title, @view)->
 			@render()
 
 		render: ()->
@@ -26,9 +23,8 @@ define [
 			if @view?
 				@$("#view").html @view.render().$el
 
-			@$(".main_container > header > .heading").text(@title)
-
 			document.title = "#{@title} - Top Claro"
+			@$("#view-title").html @title
 			@
 
 	new AppView()

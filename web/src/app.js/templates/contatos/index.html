@@ -13,15 +13,15 @@
 			<div class="dataTables_wrapper form-inline" role="grid">
 
 				<p>
-					<a class="btn" href="#contatos/novo" class="tip collapse" data-original-title="">
+					<a class="btn" href="#contatos/novo" class="tip collapse" >
 						<i class="icon-plus-sign"></i> <%=__("BUTTON_NEW_CONTACT", "Novo Contato") %>
 					</a>
-					<a class="btn disabled" href="#" class="tip collapse" data-original-title="">
+					<button data-action="edit" class="btn disabled" href="#" class="tip collapse" >
 					 	<i class="icon-edit"></i> <%=__("BUTTON_EDIT_CONTACT", "Editar Contato") %>
-					</a>
-					<a class="btn disabled" href="#" class="tip collapse" data-original-title="">
+					</button>
+					<button data-action="remove" class="btn disabled" href="#" class="tip collapse" >
 					 	<i class="icon-remove-sign"></i> <%=__("BUTTON_REMOVE_CONTACT", "Apagar Contato") %>
-					</a>
+					</button>
 				</p>	
 
 				<table class="table table-striped dataTable">

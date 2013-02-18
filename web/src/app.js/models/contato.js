@@ -13,72 +13,34 @@
         return Contato.__super__.constructor.apply(this, arguments);
       }
 
-      Contato.prototype.idAttribute = "id";
+      Contato.prototype.urlRoot = "" + Settings.api.url + "/contatos";
 
-      Contato.prototype.schema = {
-        nome: {
-          type: "Text",
-          title: "Nome"
-        },
-        pessoaJurica: {
-          title: "Espécie",
-          type: "Radio",
-          options: [
-            {
-              val: true,
-              label: "Pessoa Jurídica"
-            }, {
-              val: false,
-              label: "Pessoa Física"
-            }
-          ]
-        },
-        numeroDocumeno: {
-          type: "Number",
-          title: "CPF/CNPJ"
-        },
-        telefones: {
-          type: "List",
-          itemType: "InlineNestedModel",
-          model: Telefone
-        },
-        emails: {
-          type: "List",
-          itemType: "InlineNestedModel",
-          model: Email
-        },
-        enderecos: {
-          type: "List",
-          itemType: "InlineNestedModel",
-          model: Endereco
-        },
-        descricao: {
-          type: "TextArea",
-          title: "Anotações"
-        }
-      };
+      Contato.prototype.idAttribute = "id";
 
       Contato.prototype.parse = function(response) {
         if (response.data != null) {
           response = response.data;
         }
-        this.telefones = new Telefones([], {
+        this.set("telefones", new Telefones([], {
           contato: this
-        });
-        this.enderecos = new Enderecos([], {
+        }));
+        this.set("enderecos", new Enderecos([], {
           contato: this
-        });
-        this.emails = new Emails([], {
+        }));
+        this.set("emails", new Emails([], {
           contato: this
-        });
-        if ((response.telefones != null) && response.telefones.length) {
-          this.telefones.reset(response.telefones);
+        }));
+        if (response.telefones != null) {
+          this.get("telefones").reset(response.telefones);
+          delete response.telefones;
         }
-        if ((response.enderecos != null) && response.enderecos.length) {
-          this.enderecos.reset(response.enderecos);
+        if (response.enderecos != null) {
+          this.get("enderecos").reset(response.enderecos);
+          delete response.enderecos;
         }
-        if ((response.emails != null) && response.emails.length) {
-          this.emails.reset(response.emails);
+        if (response.emails != null) {
+          this.get("emails").reset(response.emails);
+          delete response.emails;
         }
         return response;
       };
